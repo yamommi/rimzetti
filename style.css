@@ -1,0 +1,370 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0a0a;
+  color: white;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 50px;
+  background: black;
+  align-items: center;
+}
+
+.logo img {
+  height: 160px;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 45vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  padding: 40px;
+  border-left: 4px solid red;
+}
+
+.hero-overlay h1 {
+  font-size: 64px;
+  letter-spacing: 6px;
+}
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: #007bff; /* FIXED: Was 'light blue' */
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* FEATURES */
+.features {
+  display: flex;
+  justify-content: center;
+  padding: 70px 8%;
+  gap: 30px;
+}
+
+.feature-box {
+  background: #141414;
+  padding: 45px;
+  border-top: 3px solid red;
+}
+
+/* SHOP */
+.page-title {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 0 8% 80px;
+}
+
+.product-card {
+  background: #111;
+  padding: 20px;
+  text-align: center;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: black;
+  color: gray;
+}
+
+.about-section,
+.contact-section {
+  padding: 70px 10%;
+  background: #0f0f0f;
+  border-top: 1px solid #222;
+}
+
+.about-section h2,
+.contact-section h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.about-section p,
+.contact-section p {
+  color: #aaa;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* Rimzetti Shop Catalog UI */
+.shop { padding: 40px 8% 80px; }
+.shop__header { text-align: center; margin-bottom: 18px; }
+.muted { color: rgba(255,255,255,.68); }
+
+.tabs {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  justify-content: center;
+  margin: 18px 0;
+}
+.tab {
+  border: 1px solid #222;
+  background: rgba(255,255,255,.04);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.tab.is-active {
+  border-color: #ff2a2a;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.product {
+  border: 1px solid #1f1f1f;
+  background: rgba(255,255,255,.03);
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+.product:hover { transform: translateY(-2px); border-color: rgba(255,42,42,.45); }
+.product img { width: 100%; height: 200px; object-fit: cover; display:block; }
+
+/* Modal Styles */
+.modal { position: fixed; inset: 0; display: none; z-index: 1000; }
+.modal.is-open { display: block; }
+.modal__overlay { position: absolute; inset: 0; background: rgba(0,0,0,.72); }
+.modal__panel {
+  position: relative;
+  max-width: 980px;
+  margin: 6vh auto;
+  background: #0b0b0b;
+  border-radius: 22px;
+  overflow: hidden;
+}
+.modal__content { display: grid; grid-template-columns: 1.1fr .9fr; }
+.modal__info { padding: 22px; }
+.chipRow { display:flex; flex-wrap:wrap; gap:10px; }
+.chip {
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid #222;
+  background: rgba(255,255,255,.05);
+  color: #fff;
+  cursor: pointer;
+}
+.chip.is-active { background: #ff2a2a; border-color: #ff2a2a; }
+/* --- LUXURY FORM & MODAL UPDATES --- */
+
+.modal__panel {
+  background: #111111; /* Deep charcoal */
+  border: 1px solid #333;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  position: relative;
+}
+
+/* Luxury Input Styling */
+.input {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 14px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #ff2a2a; /* Rimzetti Red */
+  background: #222;
+  box-shadow: 0 0 0 4px rgba(255, 42, 42, 0.15);
+}
+
+.modal__label {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 11px;
+  color: #888;
+}
+
+/* Premium Button Look */
+.btn-primary {
+  background: #ff2a2a;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 16px 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #d42222;
+  transform: translateY(-2px);
+}
+
+/* Grid for Side-by-Side inputs */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+}
+
+/* Close button polish */
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+.modal__close:hover { color: #fff; }
+
+.contact-section {
+  background: linear-gradient(180deg, #0b0b0b, #000);
+  padding: 120px 8%;
+  text-align: center;
+}
+
+.contact-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-section h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.contact-subtext {
+  font-size: 18px;
+  color: #aaa;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.contact-btn {
+  padding: 18px 48px;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(255, 0, 0, 0.35);
+}
+
+.contact-meta {
+  margin-top: 50px;
+  font-size: 13px;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Make entire product card clickable */
+.product {
+  cursor: pointer;
+}
+
+/* Let clicks pass through children so the card's click handler fires */
+.product img,
+.product h3,
+.product p,
+.product button {
+  pointer-events: none;
+}
+/* Form Label Styling */
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 11px;
+  color: #888;
+}
+
+/* Fix product card clicks */
+.product {
+  cursor: pointer;
+}
+
+.product img,
+.product h3,
+.product p,
+.product button {
+  pointer-events: none;
+}
+/* FIX: Make product cards fully clickable */
+.product * {
+  pointer
