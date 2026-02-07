@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rimzetti | Luxury Wheel Empire</title>
+
+<link rel="icon" href="images/favicon.jpg">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="images/logo.jpg" alt="Rimzetti Logo">
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <button class="btn-primary" onclick="openQuoteForm()">Request Quote</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <img src="images/banner.png" class="hero-bg">
+  <div class="hero-overlay">
+    <h1>RIMZETTI</h1>
+    <p>Global Luxury Wheel Empire</p>
+    <a href="shop.html" class="btn-primary">Explore Collection</a>
+  </div>
+</section>
+
+<section class="features">
+  <section class="feature-box" style="max-width: 1100px; margin: 40px auto; border-left: 4px solid red;">
+    <h3 style="margin-bottom: 10px;">How to Request a Rim Quote</h3>
+    <p class="muted" style="line-height: 1.7;">
+      Select a rim from our shop and choose your preferred <strong>size</strong>, <strong>lug pattern</strong>, and <strong>color</strong>. 
+      Include your vehicle details so our experts can verify fitment before you pay.
+    </p>
+    <a href="shop.html" class="btn-primary" style="margin-top: 18px; display:inline-block;">
+      Shop Rims Now
+    </a>
+  </section>
+
+  <div class="feature-box">
+    <h3>Forged Performance</h3>
+    <p>Engineered for power, speed, and durability.</p>
+  </div>
+  <div class="feature-box">
+    <h3>Multi-Style Collection</h3>
+    <p>Street • Track • Luxury • Off-Road</p>
+  </div>
+  <div class="feature-box">
+    <h3>Premium Materials</h3>
+    <p>Forged aluminum and elite finishes.</p>
+  </div>
+</section>
+
+<section class="about-section" style="text-align:center; padding-bottom: 0;">
+  <h2>How Rimzetti Works</h2>
+  <p class="muted" style="max-width:900px;margin:0 auto 40px;">
+    We connect you with premium wheels from verified global suppliers. 
+    Every order includes a fitment review to ensure a perfect match.
+  </p>
+  
+  <div class="features">
+    <div class="feature-box"><h3>1. Browse</h3><p>Explore the catalog.</p></div>
+    <div class="feature-box"><h3>2. Request</h3><p>Submit your specs.</p></div>
+    <div class="feature-box"><h3>3. Verify</h3><p>We confirm fitment.</p></div>
+    <div class="feature-box"><h3>4. Ship</h3><p>Secure delivery.</p></div>
+  </div>
+</section>
+
+<section class="about-section" style="border-left:4px solid red; margin-top: 60px;">
+  <h2>Shipping & Fitment</h2>
+  <p class="muted">
+    Estimated processing: <strong>3–10 business days</strong>. Transit: <strong>7–25 business days</strong>. 
+    We verify compatibility before finalizing orders to protect your investment.
+  </p>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2>Let’s Build Your Perfect Rim Setup</h2>
+    <p class="contact-subtext">
+      Fitment questions, custom finishes, or hard-to-find wheels —
+      our team handles it all.
+    </p>
+
+    <button class="btn-primary contact-btn" onclick="openContactForm()">
+      Contact Us
+    </button>
+
+    <div class="contact-meta">
+      <span>RimZetti Rims LLC</span>
+      <span>Jasper, TN</span>
+      <span>•</span>
+      <span>P.O. Box 821, Sequatchie, TN 37374</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Rimzetti — Luxury Wheel Empire</p>
+</footer>
+
+<div id="quote-modal" class="modal">
+  <div class="modal__overlay" onclick="closeQuoteForm()"></div>
+  <div class="modal__panel" style="max-width:720px; padding: 40px;">
+    <button class="modal__close" onclick="closeQuoteForm()">✕</button>
+    <div class="modal__info">
+      <h2 style="font-size: 28px;">Request a Rim Quote</h2>
+      <p class="muted" style="margin-bottom: 30px;">Provide your details and we will verify fitment compatibility.</p>
+      
+      <form name="rim-quote" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="rim-quote">
+        <input type="hidden" name="Item Number" id="q-itemno">
+        <input type="hidden" name="Rim Name" id="q-rim">
+        <input type="hidden" name="Size" id="q-size">
+        <input type="hidden" name="Color" id="q-color">
+        <input type="hidden" name="Lug Pattern" id="q-lugs">
+
+        <div class="form-row">
+          <div>
+            <label class="modal__label">Full Name</label>
+            <input class="input" name="Name" placeholder="Full Name" required>
+          </div>
+          <div>
+            <label class="modal__label">Email Address</label>
+            <input class="input" type="email" name="Email" placeholder="email@example.com" required>
+          </div>
+        </div>
+
+        <label class="modal__label">Zip Code (for Shipping Quote)</label>
+        <input class="input" name="Zip Code" id="q-zip" placeholder="e.g. 90210" required>
+
+        <label class="modal__label">Vehicle & Additional Notes</label>
+        <textarea class="input" name="Notes" rows="4" 
+          placeholder="Include Vehicle Year, Make, and Model (e.g. 2024 BMW M4)"></textarea>
+        
+        <button type="submit" class="btn-primary" style="width:100%;">Submit Quote Request</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="contact-modal" class="modal">
+  <div class="modal__overlay" onclick="closeContactForm()"></div>
+  <div class="modal__panel" style="max-width:600px; padding: 40px;">
+    <button class="modal__close" onclick="closeContactForm()">✕</button>
+    <div class="modal__info">
+      <h2 style="font-size: 28px;">Direct Concierge</h2>
+      <p class="muted" style="margin-bottom: 30px;">Inquire about custom builds or support. We respond within 24 hours.</p>
+
+      <form name="contact-us" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact-us">
+        <div class="form-row">
+          <div>
+            <label class="modal__label">Full Name</label>
+            <input class="input" name="name" placeholder="John Doe" required>
+          </div>
+          <div>
+            <label class="modal__label">Email Address</label>
+            <input class="input" type="email" name="email" placeholder="john@example.com" required>
+          </div>
+        </div>
+        <label class="modal__label">How can we help?</label>
+        <textarea class="input" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+        <button type="submit" class="btn-primary" style="width: 100%;">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

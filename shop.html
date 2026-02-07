@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rimzetti Rim Catalog</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="images/favicon.jpg">
+
+</head>
+<body data-page="shop">
+
+<header class="navbar">
+  <div class="logo">
+    <img src="images/logo.jpg" alt="Rimzetti Logo">
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html" class="is-active">Rims</a>
+    <button class="btn-primary" onclick="openQuoteForm()">Request Quote</button>
+  </nav>
+</header>
+
+<h1 class="page-title">Rim Catalog</h1>
+<p class="muted" style="text-align:center;">
+Select your rim options and request a custom quote. Pricing is provided after fitment confirmation.
+</p>
+
+<section id="product-grid" class="product-grid"></section>
+
+<section class="contact-section" id="contact" style="text-align: center; padding: 60px 10%;">
+  <h2>Contact Us</h2>
+  <p class="muted">For custom inquiries or fitment questions, reach out to our team.</p>
+  <button class="btn-primary" onclick="openContactForm()" style="margin-top: 20px;">
+    Send us a Message
+  </button>
+</section>
+
+<footer>
+  <p>© 2026 Rimzetti — Luxury Wheel Empire</p>
+</footer>
+
+<!-- PRODUCT DETAILS MODAL (same as index) -->
+<div id="modal" class="modal">
+  <div class="modal__overlay" onclick="closeModal()"></div>
+  <div class="modal__panel">
+    <button class="modal__close" onclick="closeModal()">✕</button>
+    <div class="modal__content">
+      <div class="modal__media">
+        <img id="m-img">
+      </div>
+      <div class="modal__info">
+        <h2 id="m-title" class="modal__title"></h2>
+        <p id="m-itemno" class="muted" style="font-size:13px;"></p>
+        <div class="modal__price">Quote Required</div>
+        
+        <div class="modal__block">
+          <div class="modal__label">Select Size</div>
+          <div id="m-sizes" class="chipRow"></div>
+        </div>
+
+        <div class="modal__block">
+          <div class="modal__label">Select Color</div>
+          <div id="m-colors" class="chipRow"></div>
+        </div>
+
+        <div class="modal__block">
+          <div class="modal__label">Lug Pattern</div>
+          <div id="m-lugs" class="chipRow"></div>
+        </div>
+
+        <button class="btn-primary" style="width:100%; margin-top:30px;"
+                onclick="openQuoteForm()">
+          Request Quote for this Rim
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE FORM MODAL -->
+<div id="quote-modal" class="modal">
+  <div class="modal__overlay" onclick="closeQuoteForm()"></div>
+  <div class="modal__panel" style="max-width:720px; padding: 40px;">
+    <button class="modal__close" onclick="closeQuoteForm()">✕</button>
+    <div class="modal__info">
+      <h2 style="font-size: 28px;">Request a Rim Quote</h2>
+      <p class="muted" style="margin-bottom: 30px;">
+        Provide your details and we will verify fitment compatibility.
+      </p>
+      
+      <form name="rim-quote" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="rim-quote">
+        <input type="hidden" name="Item Number" id="q-itemno">
+        <input type="hidden" name="Rim Name" id="q-rim">
+        <input type="hidden" name="Size" id="q-size">
+        <input type="hidden" name="Color" id="q-color">
+        <input type="hidden" name="Lug Pattern" id="q-lugs">
+
+        <!-- Customer Name -->
+        <label class="modal__label" for="name1">Full Name</label>
+        <input class="input" id="name1" name="Name" type="text" 
+               autocomplete="name" placeholder="John Doe" required>
+
+        <!-- Email -->
+        <label class="modal__label" for="email1">Email Address</label>
+        <input class="input" id="email1" name="Email" type="email" 
+               autocomplete="email" placeholder="john@example.com" required>
+
+        <!-- Shipping Zip Code -->
+        <label class="modal__label" for="q-zip">Shipping Zip Code</label>
+        <input class="input" id="q-zip" name="Zip Code" type="text" 
+               autocomplete="shipping postal-code" placeholder="90210" required>
+
+        <!-- Additional Info (Car details, customizations) -->
+        <label class="modal__label" for="notes">Vehicle & Additional Notes</label>
+        <textarea class="input" id="notes" name="Notes" rows="5" 
+                  autocomplete="off"
+                  placeholder="Vehicle: 2024 BMW M4 (Year, Make, Model)
+Color preferences: Matte Black
+Other customizations: ..."></textarea>
+        
+        <button type="submit" class="btn-primary" style="width:100%;">
+          Submit Quote Request
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div id="contact-modal" class="modal">
+  <div class="modal__overlay" onclick="closeContactForm()"></div>
+  <div class="modal__panel" style="max-width:600px; padding: 30px;">
+    <button class="modal__close" onclick="closeContactForm()">✕</button>
+    <div class="modal__info">
+      <h2>Contact Rimzetti</h2>
+      <form name="contact-us" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact-us">
+        <input class="input" name="name" required>
+        <label class="modal__label">Email</label>
+        <input class="input" type="email" name="email" required>
+        <label class="modal__label">Message</label>
+        <textarea class="input" name="message" rows="5" required></textarea>
+        <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    renderShop();
+  });
+</script>
+
+</body>
+</html>
