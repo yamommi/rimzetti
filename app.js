@@ -163,3 +163,22 @@ function closeContactForm() {
 // INIT
 // -------------------------------
 document.addEventListener('DOMContentLoaded', renderShop);
+function renderGroup(id, values, selected, onPick) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  el.innerHTML = '';
+
+  values.forEach(v => {
+    const btn = document.createElement('button');
+    btn.className = 'chip' + (v === selected ? ' is-active' : '');
+    btn.textContent = v;
+
+    btn.onclick = () => {
+      onPick(v);
+      renderOptions(activeProduct);
+    };
+
+    el.appendChild(btn);
+  });
+}
