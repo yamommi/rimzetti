@@ -128,6 +128,29 @@ function renderOptions(product) {
 }
 
 // -------------------------------
+// RENDER OPTION BUTTON GROUPS
+// -------------------------------
+function renderGroup(containerId, values, selected, onClick) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  values.forEach(v => {
+    const btn = document.createElement('button');
+    btn.className = 'chip' + (v === selected ? ' is-active' : '');
+    btn.textContent = v;
+
+    btn.onclick = () => {
+      onClick(v);
+      renderOptions(activeProduct);
+    };
+
+    container.appendChild(btn);
+  });
+}
+
+// -------------------------------
 // QUOTE MODAL
 // -------------------------------
 function openQuoteForm() {
