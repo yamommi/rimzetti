@@ -47,27 +47,25 @@ const $ = (id) => document.getElementById(id);
 // -------------------------------
 // RENDER SHOP
 // -------------------------------
+
 function renderShop() {
-  const grid = $('product-grid');
-  if (!grid) return;
+  const grid = document.getElementById('product-grid');
+  const products = [/* your product data array */];
 
-  grid.innerHTML = '';
+  grid.innerHTML = ''; // clear grid
 
-  PRODUCTS.forEach(product => {
-    const card = document.createElement('article');
-    card.className = 'product';
+  products.forEach(product => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
 
     card.innerHTML = `
-      <img src="${product.img}" alt="${product.name}">
+      <img src="${product.image}" alt="${product.name}">
       <h3>${product.name}</h3>
-      <p class="muted">${product.itemNo}</p>
-      <p>Sizes: ${product.sizes.join(', ')}</p>
-      <p>Colors: ${product.colors.join(', ')}</p>
-      <p>Lug Options: ${product.lugs.join(', ')}</p>
-      <button class="btn-primary btn-quote">Request Quote</button>
+      ${product.available ? `
+        <button class="btn-primary" onclick="openModal('${product.id}')">
+          Request Quote
+        </button>` : ''}
     `;
-
-    card.addEventListener('click', () => openModal(product));
 
     grid.appendChild(card);
   });
