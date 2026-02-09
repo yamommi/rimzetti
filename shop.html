@@ -41,20 +41,21 @@ Select your rim options and request a custom quote. Pricing is provided after fi
   <p>© 2026 Rimzetti — Luxury Wheel Empire</p>
 </footer>
 
-<!-- PRODUCT DETAILS MODAL (same as index) -->
 <div id="modal" class="modal">
   <div class="modal__overlay" onclick="closeModal()"></div>
+
   <div class="modal__panel">
     <button class="modal__close" onclick="closeModal()">✕</button>
+
     <div class="modal__content">
       <div class="modal__media">
-        <img id="m-img">
+        <img id="m-img" alt="">
       </div>
+
       <div class="modal__info">
-        <h2 id="m-title" class="modal__title"></h2>
-        <p id="m-itemno" class="muted" style="font-size:13px;"></p>
-        <div class="modal__price">Quote Required</div>
-        
+        <h2 id="m-title"></h2>
+        <p id="m-itemno" class="muted"></p>
+
         <div class="modal__block">
           <div class="modal__label">Select Size</div>
           <div id="m-sizes" class="chipRow"></div>
@@ -70,14 +71,14 @@ Select your rim options and request a custom quote. Pricing is provided after fi
           <div id="m-lugs" class="chipRow"></div>
         </div>
 
-        <button class="btn-primary" style="width:100%; margin-top:30px;"
-                onclick="openQuoteForm()">
-          Request Quote for this Rim
+        <button class="btn-primary" onclick="openQuoteForm()" style="width:100%; margin-top:20px;">
+          Request Quote
         </button>
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- QUOTE FORM MODAL -->
 <div id="quote-modal" class="modal">
