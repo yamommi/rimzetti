@@ -100,24 +100,21 @@ Select your rim options and request a custom quote. Pricing is provided after fi
         <input type="hidden" name="Lug Pattern" id="q-lugs">
 
         <!-- Customer Name -->
-        <label class="modal__label" for="name1">Full Name</label>
-        <input class="input" id="name1" name="Name" type="text" 
-               autocomplete="name" placeholder="John Doe" required>
-
+        <label for="contact-name" class="modal__label">Name</label>
+        <input class="input" id="contact-name" name="name" required>
+               <input autocomplete="name"...>
         <!-- Email -->
-        <label class="modal__label" for="email1">Email Address</label>
-        <input class="input" id="email1" name="Email" type="email" 
-               autocomplete="email" placeholder="john@example.com" required>
-
+        <label for="contact-email" class="modal__label">Email</label>
+        <input class="input" id="contact-email" type="email" name="email" required>
+               <input autocomplete="email"...>
         <!-- Shipping Zip Code -->
-        <label class="modal__label" for="q-zip">Shipping Zip Code</label>
+        <label for="q-zip" class="modal __label">Shipping Zip Code</label>
         <input class="input" id="q-zip" name="Zip Code" type="text" 
-               autocomplete="shipping postal-code" placeholder="90210" required>
-
+               <input autocomplete="shipping postal-code"...>
         <!-- Additional Info (Car details, customizations) -->
-        <label class="modal__label" for="notes">Vehicle & Additional Notes</label>
+        <label for="mnotes" class="modal__label">Vehicle & Additional Notes</label>
         <textarea class="input" id="notes" name="Notes" rows="5" 
-                  autocomplete="off"
+                 <textarea autocomplete="off"></textarea> 
                   placeholder="Vehicle: 2024 BMW M4 (Year, Make, Model)
 Color preferences: Matte Black
 Other customizations: ..."></textarea>
