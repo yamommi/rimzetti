@@ -98,35 +98,33 @@ function closeModal() {
 // -------------------------------
 // OPTIONS
 // -------------------------------
+
 function renderOptions(product) {
-  renderGroup('m-sizes', product.sizes, selections.size, v => selections.size = v);
-  renderGroup('m-colors', product.colors, selections.color, v => {
-    selections.color = v;
-    if (product.imagesByColor && product.imagesByColor[v]) {
-      $('m-img').src = product.imagesByColor[v];
-    }
-  });
-  renderGroup('m-lugs', product.lugs, selections.lugs, v => selections.lugs = v);
-}
+  // Sizes
+  if (Array.isArray(product.sizes) && product.sizes.length) {
+    renderGroup('m-sizes', product.sizes, selections.size, v => selections.size = v);
+  } else {
+    $('m-sizes').innerHTML = '<span class="muted">N/A</span>';
+  }
 
-function renderGroup(id, values, selected, onPick) {
-  const el = $(id);
-  el.innerHTML = '';
-
-  values.forEach(v => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'chip' + (v === selected ? ' is-active' : '');
-    btn.textContent = v;
-
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      onPick(v);
-      renderOptions(activeProduct);
+  // Colors
+  if (Array.isArray(product.colors) && product.colors.length) {
+    renderGroup('m-colors', product.colors, selections.color, v => {
+      selections.color = v;
+      if (product.imagesByColor?.[v]) {
+        $('m-img').src = product.imagesByColor[v];
+      }
     });
+  } else {
+    $('m-colors').innerHTML = '<span class="muted">N/A</span>';
+  }
 
-    el.appendChild(btn);
-  });
+  // Lugs
+  if (Array.isArray(product.lugs) && product.lugs.length) {
+    renderGroup('m-lugs', product.lugs, selections.lugs, v => selections.lugs = v);
+  } else {
+    $('m-lugs').innerHTML = '<span class="muted">N/A</span>';
+  }
 }
 
 // -------------------------------
