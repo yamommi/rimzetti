@@ -50,36 +50,60 @@ const $ = (id) => document.getElementById(id);
 
 function renderShop() {
   const grid = document.getElementById('product-grid');
-  const products = [/* your product data array */];
 
-  grid.innerHTML = ''; // clear grid
+  if (!grid) {
+    console.error("❌ product-grid not found.");
+    return;
+  }
 
-  products.forEach(product => {
+  console.log("🛒 Rendering shop...");
+  console.log("Total products:", PRODUCTS.length);
+
+  grid.innerHTML = '';
+
+  PRODUCTS.forEach((product, index) => {
+    console.log(`🔍 Product ${index + 1}:`, product);
+
+    // Safety check
+    if (!product.itemNo || !product.name || !product.img) {
+      console.warn("⚠️ Missing required fields:", product);
+      return;
+    }
+
     const card = document.createElement('div');
     card.className = 'product-card';
 
     card.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
+      <img src="${product.img}" alt="${product.name}" class="product-image">
       <h3>${product.name}</h3>
-      ${product.available ? `
-        <button class="btn-primary" onclick="openModal('${product.id}')">
-          Request Quote
-        </button>` : ''}
+      <p class="muted">${product.itemNo}</p>
+      <button class="btn-primary" onclick="openModal('${product.itemNo}')">
+        Request Quote
+      </button>
     `;
 
     grid.appendChild(card);
   });
+
+  console.log("✅ Shop render complete.");
 }
 
 // -------------------------------
 // PRODUCT MODAL
 // -------------------------------
-function openModal(product) {
+function openModal(itemNo) {
+  const product = PRODUCTS.find(p => p.itemNo === itemNo);
+
+  if (!product) {
+    console.error("❌ Product not found:", itemNo);
+    return;
+  }
+
   activeProduct = product;
 
-  selections.size = product.sizes[0] || '';
-  selections.color = product.colors[0] || '';
-  selections.lugs = product.lugs[0] || '';
+  selections.size = product.sizes?.[0] || '';
+  selections.color = product.colors?.[0] || '';
+  selections.lugs = product.lugs?.[0] || '';
 
   $('m-title').textContent = product.name;
   $('m-itemno').textContent = product.itemNo;
@@ -184,22 +208,4 @@ function closeContactForm() {
 // INIT
 // -------------------------------
 document.addEventListener('DOMContentLoaded', renderShop);
-function renderGroup(id, values, selected, onPick) {
-  const el = document.getElementById(id);
-  if (!el) return;
 
-  el.innerHTML = '';
-
-  values.forEach(v => {
-    const btn = document.createElement('button');
-    btn.className = 'chip' + (v === selected ? ' is-active' : '');
-    btn.textContent = v;
-
-    btn.onclick = () => {
-      onPick(v);
-      renderOptions(activeProduct);
-    };
-
-    el.appendChild(btn);
-  });
-}
