@@ -79,7 +79,6 @@ Select your rim options and request a custom quote. Pricing is provided after fi
   </div>
 </div>
 
-
 <!-- QUOTE FORM MODAL -->
 <div id="quote-modal" class="modal">
   <div class="modal__overlay" onclick="closeQuoteForm()"></div>
@@ -99,26 +98,56 @@ Select your rim options and request a custom quote. Pricing is provided after fi
         <input type="hidden" name="Color" id="q-color">
         <input type="hidden" name="Lug Pattern" id="q-lugs">
 
-        <!-- Customer Name -->
-        <label for="contact-name" class="modal__label">Name</label>
-        <input class="input" id="contact-name" name="name" required>
-               <input autocomplete="name"...>
-        <!-- Email -->
-        <label for="contact-email" class="modal__label">Email</label>
-        <input class="input" id="contact-email" type="email" name="email" required>
-               <input autocomplete="email"...>
-        <!-- Shipping Zip Code -->
-        <label for="q-zip" class="modal __label">Shipping Zip Code</label>
-        <input class="input" id="q-zip" name="Zip Code" type="text" 
-               <input autocomplete="shipping postal-code"...>
-        <!-- Additional Info (Car details, customizations) -->
-        <label for="mnotes" class="modal__label">Vehicle & Additional Notes</label>
-        <textarea class="input" id="notes" name="Notes" rows="5" 
-                 <textarea autocomplete="off"></textarea> 
-                  placeholder="Vehicle: 2024 BMW M4 (Year, Make, Model)
+       <!-- Customer Name -->
+<label class="modal__label" for="contact-name">Full Name</label>
+<input
+  class="input"
+  id="contact-name"
+  name="Name"
+  type="text"
+  autocomplete="name"
+  placeholder="John Doe"
+  required
+>
+
+<!-- Email -->
+<label class="modal__label" for="contact-email">Email Address</label>
+<input
+  class="input"
+  id="contact-email"
+  name="Email"
+  type="email"
+  autocomplete="email"
+  placeholder="john@example.com"
+  required
+>
+
+<!-- Shipping Zip Code -->
+<label class="modal__label" for="q-zip">Shipping Zip Code</label>
+<input
+  class="input"
+  id="q-zip"
+  name="Zip Code"
+  type="text"
+  inputmode="numeric"
+  autocomplete="shipping postal-code"
+  placeholder="90210"
+  required
+>
+
+<!-- Additional Info -->
+<label class="modal__label" for="notes">Vehicle & Additional Notes</label>
+<textarea
+  class="input"
+  id="notes"
+  name="Notes"
+  rows="5"
+  autocomplete="off"
+  placeholder="Vehicle: 2024 BMW M4 (Year, Make, Model)
 Color preferences: Matte Black
-Other customizations: ..."></textarea>
-        
+Other customizations: ..."
+></textarea>
+
         <button type="submit" class="btn-primary" style="width:100%;">
           Submit Quote Request
         </button>
@@ -147,12 +176,10 @@ Other customizations: ..."></textarea>
   </div>
 </div>
 
+<script src="app.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    renderShop();
-  });
+  document.addEventListener('DOMContentLoaded', renderShop);
 </script>
 
-  <script src="app.js"></script>
 </body>
 </html>
