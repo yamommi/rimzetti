@@ -7,9 +7,30 @@
 // PRODUCT DATA
 // -------------------------------
 const PRODUCTS = [
-  { itemNo: 'Item No. 001', name: 'Forged Rims', img: 'images/image-1.png', sizes: ['18 inch', '19 inch', '20 inch', '22 inch'], colors: ['Silver'], lugs: ['5-lug'] },
-  { itemNo: 'Item No. 002', name: 'Rimzetti Apex Cast', img: 'images/image-2.png', sizes: ['18 inch', '19 inch', '20 inch'], colors: ['Black'], lugs: ['5-lug'] },
-  { itemNo: 'Item No. 003', name: 'Rimzetti Factory Edition', img: 'images/image-3.png', sizes: ['18 inch', '19 inch', '20 inch'], colors: ['Hyper Black'], lugs: ['5-lug'] },
+  { 
+    itemNo: 'Item No. 001', 
+    name: 'Forged Rims', 
+    img: 'images/image-1.png', 
+    sizes: ['18 inch', '19 inch', '20 inch', '22 inch'], 
+    colors: ['Silver'], 
+    lugs: ['5-lug'] 
+  },
+  { 
+    itemNo: 'Item No. 002', 
+    name: 'Rimzetti Apex Cast', 
+    img: 'images/image-2.png', 
+    sizes: ['18 inch', '19 inch', '20 inch'], 
+    colors: ['Black'], 
+    lugs: ['5-lug'] 
+  },
+  { 
+    itemNo: 'Item No. 003', 
+    name: 'Rimzetti Factory Edition', 
+    img: 'images/image-3.png', 
+    sizes: ['18 inch', '19 inch', '20 inch'], 
+    colors: ['Hyper Black'], 
+    lugs: ['5-lug'] 
+  },
   {
     itemNo: 'Item No. 004',
     name: 'Rimzetti Multi-Spoke',
@@ -23,14 +44,63 @@ const PRODUCTS = [
       'Red': 'images/image-4-red.png'
     }
   },
-  { itemNo: 'Item No. 005', name: 'Rimzetti Grey Edition', img: 'images/image-5.png', sizes: ['18 inch', '19 inch', '20 inch', '21 inch'], colors: ['Grey'], lugs: ['5-lug'] },
-  { itemNo: 'Item No. 006', name: 'Rimzetti Best Seller', img: 'images/image-6.png', sizes: ['17 inch', '18 inch', '19 inch', '20 inch'], colors: ['Black'], lugs: ['5-lug'] },
-  { itemNo: 'Item No. 007', name: 'Offroad Beadlock Alloy Wheel', img: 'images/image-7.png', sizes: ['17 inch'], colors: ['Black'], lugs: ['5-lug'] },
-  { itemNo: 'Item No. 008', name: 'Multi-Fit Alloy Wheel', img: 'images/image-8.png', sizes: ['15 inch'], colors: ['Silver'], lugs: ['4-lug', '4-lug', '6-lug'] },
-  { itemNo: 'Item No. 009', name: 'Five-Spoke Performance Rim', img: 'images/image-9.png', sizes: ['15 inch', '16 inch', '17 inch', '18 inch'], colors: ['Silver'], lugs: ['5-lug'] },
-  { itemNo: 'Item No. 010', name: 'Insert Style Rim', img: 'images/image-10.png', sizes: ['15 inch', '16 inch'], colors: ['Black'], lugs: ['4-lug', '5-lug'] },
-  { itemNo: 'Item No. 011', name: 'Street Performance Rim', img: 'images/image-11.png', sizes: ['15 inch', '16 inch', '17 inch', '18 inch'], colors: ['Silver'], lugs: ['4-lug', '5-lug'] },
- ];
+  { 
+    itemNo: 'Item No. 005', 
+    name: 'Rimzetti Grey Edition', 
+    img: 'images/image-5.png', 
+    sizes: ['18 inch', '19 inch', '20 inch', '21 inch'], 
+    colors: ['Grey'], 
+    lugs: ['5-lug'] 
+  },
+  { 
+    itemNo: 'Item No. 006', 
+    name: 'Rimzetti Best Seller', 
+    img: 'images/image-6.png', 
+    sizes: ['17 inch', '18 inch', '19 inch', '20 inch'], 
+    colors: ['Black'], 
+    lugs: ['5-lug'] 
+  },
+  { 
+    itemNo: 'Item No. 007', 
+    name: 'Offroad Beadlock Alloy Wheel', 
+    img: 'images/image-7.png', 
+    sizes: ['17 inch'], 
+    colors: ['Black'], 
+    lugs: ['5-lug'] 
+  },
+  { 
+    itemNo: 'Item No. 008', 
+    name: 'Multi-Fit Alloy Wheel', 
+    img: 'images/image-8.png', 
+    sizes: ['15 inch'], 
+    colors: ['Silver'], 
+    lugs: ['4-lug', '6-lug'] 
+  },
+  { 
+    itemNo: 'Item No. 009', 
+    name: 'Five-Spoke Performance Rim', 
+    img: 'images/image-9.png', 
+    sizes: ['15 inch', '16 inch', '17 inch', '18 inch'], 
+    colors: ['Silver'], 
+    lugs: ['5-lug'] 
+  },
+  { 
+    itemNo: 'Item No. 010', 
+    name: 'Insert Style Rim', 
+    img: 'images/image-10.png', 
+    sizes: ['15 inch', '16 inch'], 
+    colors: ['Black'], 
+    lugs: ['4-lug', '5-lug'] 
+  },
+  { 
+    itemNo: 'Item No. 011', 
+    name: 'Street Performance Rim', 
+    img: 'images/image-11.png', 
+    sizes: ['15 inch', '16 inch', '17 inch', '18 inch'], 
+    colors: ['Silver'], 
+    lugs: ['4-lug', '5-lug'] 
+  }
+];
 
 // -------------------------------
 // STATE
