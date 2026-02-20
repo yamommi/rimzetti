@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Rimzetti Rim Catalog</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/favicon.jpg" />
@@ -10,144 +11,55 @@
 
 <body data-page="shop">
 
-<header class="navbar">
-  <div class="logo">
-    <img src="images/logo.jpg" alt="Rimzetti Logo" />
-  </div>
-  <nav class="navlinks">
-    <a href="index.html">Home</a>
-    <a href="shop.html" class="is-active">Rims</a>
-    <button class="btn-primary" type="button" onclick="openQuoteForm()">Request Quote</button>
-  </nav>
-</header>
-
-<h1 class="page-title">Rim Catalog</h1>
-<p class="muted center">
-  Select your rim options and request a custom quote. Pricing is provided after fitment confirmation.
-</p>
-
-<section id="product-grid" class="product-grid"></section>
-
-<section class="contact-section" id="contact">
-  <h2>Contact Us</h2>
-  <p class="muted">For custom inquiries or fitment questions, reach out to our team.</p>
-  <button class="btn-primary" type="button" onclick="openContactForm()" style="margin-top: 20px;">
-    Send us a Message
-  </button>
-</section>
-
-<footer>
-  <p>© 2026 Rimzetti — Luxury Wheel Empire</p>
-</footer>
-
-<!-- PRODUCT MODAL -->
-<div id="modal" class="modal" aria-hidden="true">
-  <div class="modal__overlay" onclick="closeModal()"></div>
-
-  <div class="modal__panel" role="dialog" aria-modal="true">
-    <button class="modal__close" type="button" onclick="closeModal()">✕</button>
-
-    <div class="modal__content">
-      <div class="modal__media">
-        <img id="m-img" alt="" />
-      </div>
-
-      <div class="modal__info">
-        <h2 id="m-title"></h2>
-        <p id="m-itemno" class="muted"></p>
-
-        <div class="modal__block">
-          <div class="modal__label">Select Size</div>
-          <div id="m-sizes" class="chipRow"></div>
-        </div>
-
-        <div class="modal__block">
-          <div class="modal__label">Select Color</div>
-          <div id="m-colors" class="chipRow"></div>
-        </div>
-
-        <div class="modal__block">
-          <div class="modal__label">Lug Pattern</div>
-          <div id="m-lugs" class="chipRow"></div>
-        </div>
-
-        <button class="btn-primary" type="button" onclick="openQuoteForm()" style="width:100%; margin-top:20px;">
-          Request Quote
-        </button>
-      </div>
+  <header class="navbar">
+    <div class="logo">
+      <img src="images/banner.png" alt="Rimzetti Logo" />
     </div>
-  </div>
-</div>
 
-<!-- QUOTE MODAL -->
-<div id="quote-modal" class="modal" aria-hidden="true">
-  <div class="modal__overlay" onclick="closeQuoteForm()"></div>
+    <nav class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="is-active">Rims</a>
+      <button class="btn-primary" type="button" onclick="openQuoteForm()">
+        REQUEST QUOTE
+      </button>
+    </nav>
+  </header>
 
-  <div class="modal__panel" role="dialog" aria-modal="true" style="max-width:720px; padding: 40px;">
-    <button class="modal__close" type="button" onclick="closeQuoteForm()">✕</button>
+  <main>
+    <h1 class="page-title">Rim Catalog</h1>
+    <p class="muted center">
+      Select your rim options and request a custom quote. Pricing is provided after fitment confirmation.
+    </p>
 
-    <div class="modal__info">
-      <h2 style="font-size: 28px; margin: 0 0 8px;">Request a Rim Quote</h2>
-      <p class="muted" style="margin: 0 0 24px;">
-        Provide your details and we will verify fitment compatibility.
+    <section id="product-grid" class="product-grid"></section>
+
+    <section class="contact-section" id="contact">
+      <h2>Contact Us</h2>
+      <p class="muted">
+        For custom inquiries or fitment questions, reach out to our team.
       </p>
+      <button class="btn-primary" type="button" onclick="openContactForm()" style="margin-top: 20px;">
+        SEND US A MESSAGE
+      </button>
+    </section>
+  </main>
 
-      <form name="rim-quote" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="rim-quote" />
-        <input type="hidden" name="Item Number" id="q-itemno" />
-        <input type="hidden" name="Rim Name" id="q-rim" />
-        <input type="hidden" name="Size" id="q-size" />
-        <input type="hidden" name="Color" id="q-color" />
-        <input type="hidden" name="Lug Pattern" id="q-lugs" />
+  <footer>
+    <p>© 2026 Rimzetti — Luxury Wheel Empire</p>
+  </footer>
 
-        <label class="modal__label" for="contact-name">Full Name</label>
-        <input class="input" id="contact-name" name="Name" type="text" autocomplete="name" placeholder="John Doe" required />
+  <!-- PRODUCT MODAL -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal__overlay" onclick="closeModal()"></div>
 
-        <label class="modal__label" for="contact-email">Email Address</label>
-        <input class="input" id="contact-email" name="Email" type="email" autocomplete="email" placeholder="john@example.com" required />
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="m-title">
+      <button class="modal__close" type="button" onclick="closeModal()">✕</button>
 
-        <label class="modal__label" for="q-zip">Shipping Zip Code</label>
-        <input class="input" id="q-zip" name="Zip Code" type="text" inputmode="numeric" autocomplete="shipping postal-code" placeholder="90210" required />
+      <div class="modal__content">
+        <div class="modal__media">
+          <img id="m-img" alt="" />
+        </div>
 
-        <label class="modal__label" for="notes">Vehicle & Additional Notes</label>
-        <textarea class="input" id="notes" name="Notes" rows="5" placeholder="Vehicle: 2024 BMW M4 (Year, Make, Model)
-Color preferences: Matte Black
-Other customizations: ..."></textarea>
-
-        <button type="submit" class="btn-primary" style="width:100%;">Submit Quote Request</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT MODAL -->
-<div id="contact-modal" class="modal" aria-hidden="true">
-  <div class="modal__overlay" onclick="closeContactForm()"></div>
-
-  <div class="modal__panel" role="dialog" aria-modal="true" style="max-width:600px; padding: 30px;">
-    <button class="modal__close" type="button" onclick="closeContactForm()">✕</button>
-
-    <div class="modal__info">
-      <h2 style="margin: 0 0 12px;">Contact Rimzetti</h2>
-
-      <form name="contact-us" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact-us" />
-
-        <label class="modal__label">Name</label>
-        <input class="input" name="name" required />
-
-        <label class="modal__label">Email</label>
-        <input class="input" type="email" name="email" required />
-
-        <label class="modal__label">Message</label>
-        <textarea class="input" name="message" rows="5" required></textarea>
-
-        <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<script src="app.js"></script>
-</body>
-</html>
+        <div class="modal__info">
+          <h2 id="m-title"></h2>
+          <p id="m-itemno" class="muted"></p>
