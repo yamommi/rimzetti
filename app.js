@@ -1,7 +1,9 @@
 /************************************
  Rimzetti — Quote-Only Catalog System
- WORKING / SIMPLE / CLEAN
+ COMPLETE / WORKING
 ************************************/
+
+console.log("✅ app.js loaded");
 
 const PRODUCTS = [
   {
@@ -37,8 +39,8 @@ const PRODUCTS = [
     lugs: ["6-lug"],
     imagesByColor: {
       "Matte Black": "images/image-4-black.png",
-      Bronze: "images/image-4-bronze.png",
-      Red: "images/image-4-red.png",
+      "Bronze": "images/image-4-bronze.png",
+      "Red": "images/image-4-red.png",
     },
   },
   {
@@ -104,9 +106,17 @@ let selections = { size: "", color: "", lugs: "" };
 
 const $ = (id) => document.getElementById(id);
 
+function setBodyLock(lock) {
+  document.body.style.overflow = lock ? "hidden" : "";
+}
+
+/* ---------- Render Shop ---------- */
 function renderShop() {
   const grid = $("product-grid");
-  if (!grid) return;
+  if (!grid) {
+    console.error("❌ product-grid not found. Check: <section id='product-grid'>");
+    return;
+  }
 
   grid.innerHTML = "";
 
@@ -115,23 +125,29 @@ function renderShop() {
     card.className = "product-card";
 
     card.innerHTML = `
-      <img src="${product.img}" alt="${product.name}" class="product-image">
+      <img src="${product.img}" alt="${product.name}" class="product-image" />
       <h3>${product.name}</h3>
       <p class="muted">${product.itemNo}</p>
       <button class="btn-primary" type="button">Request Quote</button>
     `;
 
-    // Clicking the button opens product modal
-    card.querySelector("button").addEventListener("click", () => openModal(product.itemNo));
+    card.querySelector("button").addEventListener("click", () => {
+      openModal(product.itemNo);
+    });
 
     grid.appendChild(card);
   });
+
+  console.log("✅ Shop rendered:", PRODUCTS.length, "products");
 }
 
-// ----- Product modal -----
+/* ---------- Product Modal ---------- */
 function openModal(itemNo) {
   const product = PRODUCTS.find((p) => p.itemNo === itemNo);
-  if (!product) return;
+  if (!product) {
+    console.error("❌ Product not found:", itemNo);
+    return;
+  }
 
   activeProduct = product;
 
@@ -144,31 +160,35 @@ function openModal(itemNo) {
   $("m-img").src = product.img;
 
   renderOptions(product);
+
   $("modal").classList.add("is-open");
-  document.body.style.overflow = "hidden";
+  setBodyLock(true);
 }
 
 function closeModal() {
   $("modal").classList.remove("is-open");
-  document.body.style.overflow = "";
+  setBodyLock(false);
 }
 
-// ----- Options -----
+/* ---------- Options UI ---------- */
 function renderOptions(product) {
-  // Sizes
-  renderGroup("m-sizes", product.sizes || [], selections.size, (v) => (selections.size = v));
-
-  // Colors (also swap image if mapping exists)
-  renderGroup("m-colors", product.colors || [], selections.color, (v) => {
-    selections.color = v;
-    if (product.imagesByColor?.[v]) $("m-img").src = product.imagesByColor[v];
+  renderGroup("m-sizes", product.sizes || [], selections.size, (v) => {
+    selections.size = v;
   });
 
-  // Lugs
-  renderGroup("m-lugs", product.lugs || [], selections.lugs, (v) => (selections.lugs = v));
+  renderGroup("m-colors", product.colors || [], selections.color, (v) => {
+    selections.color = v;
+    if (product.imagesByColor?.[v]) {
+      $("m-img").src = product.imagesByColor[v];
+    }
+  });
+
+  renderGroup("m-lugs", product.lugs || [], selections.lugs, (v) => {
+    selections.lugs = v;
+  });
 }
 
-function renderGroup(containerId, values, selected, onPick) {
+function renderGroup(containerId, values, selectedValue, onPick) {
   const container = $(containerId);
   if (!container) return;
 
@@ -181,7 +201,7 @@ function renderGroup(containerId, values, selected, onPick) {
   values.forEach((v) => {
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "chip" + (v === selected ? " is-active" : "");
+    btn.className = "chip" + (v === selectedValue ? " is-active" : "");
     btn.textContent = v;
 
     btn.addEventListener("click", () => {
@@ -193,17 +213,23 @@ function renderGroup(containerId, values, selected, onPick) {
   });
 }
 
-// ----- Quote modal -----
+/* ---------- Quote Modal ---------- */
 function openQuoteForm() {
-  // If they click Request Quote in header without selecting a rim, still open form
-  if (!activeProduct) {
-    $("quote-modal").classList.add("is-open");
-    document.body.style.overflow = "hidden";
-    return;
-  }
-
   // Close product modal if open
   $("modal").classList.remove("is-open");
+
+  // If no product selected yet, open quote modal blank (still works)
+  if (!activeProduct) {
+    $("q-itemno").value = "";
+    $("q-rim").value = "";
+    $("q-size").value = "";
+    $("q-color").value = "";
+    $("q-lugs").value = "";
+
+    $("quote-modal").classList.add("is-open");
+    setBodyLock(true);
+    return;
+  }
 
   $("q-itemno").value = activeProduct.itemNo || "";
   $("q-rim").value = activeProduct.name || "";
@@ -212,31 +238,42 @@ function openQuoteForm() {
   $("q-lugs").value = selections.lugs || "";
 
   $("quote-modal").classList.add("is-open");
-  document.body.style.overflow = "hidden";
+  setBodyLock(true);
 }
 
 function closeQuoteForm() {
   $("quote-modal").classList.remove("is-open");
-  document.body.style.overflow = "";
+  setBodyLock(false);
 }
 
-// ----- Contact modal -----
+/* ---------- Contact Modal ---------- */
 function openContactForm() {
   $("contact-modal").classList.add("is-open");
-  document.body.style.overflow = "hidden";
+  setBodyLock(true);
 }
 
 function closeContactForm() {
   $("contact-modal").classList.remove("is-open");
-  document.body.style.overflow = "";
+  setBodyLock(false);
 }
 
-// ----- ESC closes everything -----
+/* ---------- Global ESC close ---------- */
 document.addEventListener("keydown", (e) => {
   if (e.key !== "Escape") return;
-  ["modal", "quote-modal", "contact-modal"].forEach((id) => $(id)?.classList.remove("is-open"));
-  document.body.style.overflow = "";
+
+  $("modal")?.classList.remove("is-open");
+  $("quote-modal")?.classList.remove("is-open");
+  $("contact-modal")?.classList.remove("is-open");
+  setBodyLock(false);
 });
 
-// ----- Init -----
+/* ---------- Make functions available to inline onclick ---------- */
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.openQuoteForm = openQuoteForm;
+window.closeQuoteForm = closeQuoteForm;
+window.openContactForm = openContactForm;
+window.closeContactForm = closeContactForm;
+
+/* ---------- Init ---------- */
 document.addEventListener("DOMContentLoaded", renderShop);
