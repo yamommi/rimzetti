@@ -1,4 +1,4 @@
-console.log("✅ app.js loaded on", location.pathname);
+console.log("app.js loaded OK");
 
 const PRODUCTS = [
   { itemNo: "Item No. 001", name: "Forged Rims", img: "/images/image-1.png", sizes: ["18 inch","19 inch","20 inch","22 inch"], colors: ["Silver"], lugs: ["5-lug"] },
@@ -23,7 +23,7 @@ const PRODUCTS = [
   { itemNo: "Item No. 008", name: "Multi-Fit Alloy Wheel", img: "/images/image-8.png", sizes: ["15 inch"], colors: ["Silver"], lugs: ["4-lug","6-lug"] },
   { itemNo: "Item No. 009", name: "Five-Spoke Performance Rim", img: "/images/image-9.png", sizes: ["15 inch","16 inch","17 inch","18 inch"], colors: ["Silver"], lugs: ["5-lug"] },
   { itemNo: "Item No. 010", name: "Insert Style Rim", img: "/images/image-10.png", sizes: ["15 inch","16 inch"], colors: ["Black"], lugs: ["4-lug","5-lug"] },
-  { itemNo: "Item No. 011", name: "Street Performance Rim", img: "/images/image-11.png", sizes: ["15 inch","16 inch","17 inch","18 inch"], colors: ["Silver"], lugs: ["4-lug","5-lug"] },
+  { itemNo: "Item No. 011", name: "Street Performance Rim", img: "/images/image-11.png", sizes: ["15 inch","16 inch","17 inch","18 inch"], colors: ["Silver"], lugs: ["4-lug","5-lug"] }
 ];
 
 let activeProduct = null;
@@ -38,38 +38,40 @@ function lockBody(lock) {
 function renderShop() {
   const grid = $("product-grid");
   if (!grid) {
-    console.error("❌ product-grid not found.");
+    console.error("product-grid not found");
     return;
   }
 
   grid.innerHTML = "";
 
-  PRODUCTS.forEach((product) => {
+  PRODUCTS.forEach((p) => {
     const card = document.createElement("div");
     card.className = "product-card";
+    card.innerHTML =
+      '<img class="product-image" src="' + p.img + '" alt="' + p.name + '">' +
+      "<h3>" + p.name + "</h3>" +
+      '<p class="muted">' + p.itemNo + "</p>" +
+      '<button class="btn-primary" type="button">Request Quote</button>';
 
-    card.innerHTML = `
-      <img src="${product.img}" alt="${product.name}" class="product-image" />
-      <h3>${product.name}</h3>
-      <p class="muted">${product.itemNo}</p>
-      <button class="btn-primary" type="button">Request Quote</button>
-    `;
+    card.querySelector("button").addEventListener("click", function () {
+      openModal(p.itemNo);
+    });
 
-    card.querySelector("button").addEventListener("click", () => openModal(product.itemNo));
     grid.appendChild(card);
   });
 
-  console.log("✅ Rendered", PRODUCTS.length, "products");
+  console.log("Rendered products:", PRODUCTS.length);
 }
 
 function openModal(itemNo) {
-  const product = PRODUCTS.find((p) => p.itemNo === itemNo);
+  const product = PRODUCTS.find((x) => x.itemNo === itemNo);
   if (!product) return;
 
   activeProduct = product;
-  selections.size = product.sizes?.[0] || "";
-  selections.color = product.colors?.[0] || "";
-  selections.lugs = product.lugs?.[0] || "";
+
+  selections.size = (product.sizes && product.sizes[0]) || "";
+  selections.color = (product.colors && product.colors[0]) || "";
+  selections.lugs = (product.lugs && product.lugs[0]) || "";
 
   $("m-title").textContent = product.name;
   $("m-itemno").textContent = product.itemNo;
@@ -87,31 +89,39 @@ function closeModal() {
 }
 
 function renderOptions(product) {
-  renderGroup("m-sizes", product.sizes || [], selections.size, (v) => (selections.size = v));
-  renderGroup("m-colors", product.colors || [], selections.color, (v) => {
-    selections.color = v;
-    if (product.imagesByColor?.[v]) $("m-img").src = product.imagesByColor[v];
+  renderGroup("m-sizes", product.sizes || [], selections.size, function (v) {
+    selections.size = v;
   });
-  renderGroup("m-lugs", product.lugs || [], selections.lugs, (v) => (selections.lugs = v));
+
+  renderGroup("m-colors", product.colors || [], selections.color, function (v) {
+    selections.color = v;
+    if (product.imagesByColor && product.imagesByColor[v]) {
+      $("m-img").src = product.imagesByColor[v];
+    }
+  });
+
+  renderGroup("m-lugs", product.lugs || [], selections.lugs, function (v) {
+    selections.lugs = v;
+  });
 }
 
-function renderGroup(containerId, values, selectedValue, onPick) {
+function renderGroup(containerId, values, selected, onPick) {
   const container = $(containerId);
   if (!container) return;
 
   if (!values.length) {
-    container.innerHTML = `<span class="muted">N/A</span>`;
+    container.innerHTML = '<span class="muted">N/A</span>';
     return;
   }
 
   container.innerHTML = "";
-  values.forEach((v) => {
+  values.forEach(function (v) {
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "chip" + (v === selectedValue ? " is-active" : "");
+    btn.className = "chip" + (v === selected ? " is-active" : "");
     btn.textContent = v;
 
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", function () {
       onPick(v);
       renderOptions(activeProduct);
     });
@@ -159,15 +169,14 @@ function closeContactForm() {
   lockBody(false);
 }
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", function (e) {
   if (e.key !== "Escape") return;
-  $("modal")?.classList.remove("is-open");
-  $("quote-modal")?.classList.remove("is-open");
-  $("contact-modal")?.classList.remove("is-open");
+  $("modal") && $("modal").classList.remove("is-open");
+  $("quote-modal") && $("quote-modal").classList.remove("is-open");
+  $("contact-modal") && $("contact-modal").classList.remove("is-open");
   lockBody(false);
 });
 
-/* IMPORTANT: inline onclick needs globals */
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.openQuoteForm = openQuoteForm;
