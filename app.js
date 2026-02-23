@@ -38,36 +38,56 @@ function lockBody(lock) {
   document.body.style.overflow = lock ? "hidden" : "";
 }
 
-/* ---------- Render Products ---------- */
 function renderShop() {
-  const grid = $("product-grid");
+  const grid = document.getElementById("product-grid");
   if (!grid) {
-    console.error("product-grid not found. Make sure shop.html has: <section id='product-grid'>");
+    console.error("product-grid not found");
     return;
   }
 
   grid.innerHTML = "";
 
-  for (let i = 0; i < PRODUCTS.length; i++) {
-    const p = PRODUCTS[i];
+  PRODUCTS.forEach((p) => {
+    const sizesText = (p.sizes || []).map(s => s.replace(" inch", '"')).join(", ");
+    const colorsText = (p.colors || []).join(", ");
+    const lugsText = (p.lugs || []).join(", ");
 
     const card = document.createElement("div");
     card.className = "product-card";
 
-    card.innerHTML =
-      '<img class="product-image" src="' + p.img + '" alt="' + p.name + '">' +
-      "<h3>" + p.name + "</h3>" +
-      '<p class="muted">' + p.itemNo + "</p>" +
-      '<button class="btn-primary" type="button">Request Quote</button>';
+    card.innerHTML = `
+      <img class="product-image" src="${p.img}" alt="${p.name}">
+      <div class="product-body">
+        <h3 class="product-title">${p.name}</h3>
 
-    card.querySelector("button").addEventListener("click", function () {
-      openModal(p.itemNo);
-    });
+        <div class="product-row muted">
+          <div class="product-label">Item No.</div>
+          <div class="product-value">${p.itemNo.replace("Item No. ", "")}</div>
+        </div>
+
+        <div class="product-row">
+          <div class="product-label">Sizes:</div>
+          <div class="product-value">${sizesText}</div>
+        </div>
+
+        <div class="product-row">
+          <div class="product-label">Colors:</div>
+          <div class="product-value">${colorsText}</div>
+        </div>
+
+        <div class="product-row">
+          <div class="product-label">Lug Options:</div>
+          <div class="product-value">${lugsText}</div>
+        </div>
+      </div>
+
+      <button class="btn-primary product-cta" type="button">Request Quote</button>
+    `;
+
+    card.querySelector(".product-cta").addEventListener("click", () => openModal(p.itemNo));
 
     grid.appendChild(card);
-  }
-
-  console.log("Rendered products:", PRODUCTS.length);
+  });
 }
 
 /* ---------- Product Modal ---------- */
