@@ -1,62 +1,73 @@
-/* ===== Base ===== */
+/* =========================
+   Rimzetti - Full Site CSS
+   Black + Red Luxury Theme
+   ========================= */
+
+/* ---- Reset / Base ---- */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-body {
+body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: #000;
   color: #fff;
 }
-a { color: inherit; text-decoration: none; }
-.center { text-align: center; }
-.muted { color: rgba(255,255,255,0.72); }
+a{ color: inherit; text-decoration: none; }
+img{ max-width: 100%; display: block; }
 
-/* ===== Header ===== */
-.navbar {
+.center{ text-align: center; }
+.muted{ color: rgba(255,255,255,0.72); }
+
+/* ---- Navbar ---- */
+.navbar{
   position: sticky;
   top: 0;
   z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 10%;
-  background: rgba(0,0,0,0.75);
+  padding: 18px 8%;
+  background: rgba(0,0,0,0.78);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.logo img {
+
+.logo img{
   height: 44px;
   width: auto;
 }
-.navlinks {
+
+.navlinks{
   display: flex;
-  gap: 22px;
   align-items: center;
+  gap: 22px;
 }
-.navlinks a {
-  font-weight: 700;
-  opacity: 0.9;
+
+.navlinks a{
+  font-weight: 800;
+  opacity: 0.92;
 }
-.navlinks a.is-active {
+
+.navlinks a.is-active{
   opacity: 1;
   border-bottom: 2px solid #ff2b2b;
   padding-bottom: 4px;
 }
 
-/* ===== Buttons / Inputs ===== */
-.btn-primary {
+/* ---- Buttons / Inputs ---- */
+.btn-primary{
   background: #ff2b2b;
   color: #fff;
   border: none;
   padding: 14px 18px;
   border-radius: 10px;
   cursor: pointer;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.4px;
 }
-.btn-primary:hover { filter: brightness(1.05); }
-.btn-primary:active { transform: translateY(1px); }
+.btn-primary:hover{ filter: brightness(1.05); }
+.btn-primary:active{ transform: translateY(1px); }
 
-.input {
+.input{
   width: 100%;
   margin: 6px 0 16px;
   padding: 12px 14px;
@@ -66,91 +77,139 @@ a { color: inherit; text-decoration: none; }
   color: #fff;
   outline: none;
 }
-.input:focus { border-color: rgba(255, 43, 43, 0.9); }
+.input:focus{ border-color: rgba(255,43,43,0.9); }
 
-/* ===== Page ===== */
-main { padding-bottom: 40px; }
-.page-title {
+/* ---- Page Titles ---- */
+.page-title{
   text-align: center;
-  margin: 50px 0 10px;
-  font-size: 44px;
+  margin: 48px 0 10px;
+  font-size: 46px;
   font-weight: 900;
 }
-@media (max-width: 600px) {
-  .page-title { font-size: 34px; }
+@media (max-width: 650px){
+  .page-title{ font-size: 34px; }
 }
 
-/* ===== Grid ===== */
-.product-grid {
-  padding: 40px 10% 80px;
+/* =========================
+   SHOP GRID + CARDS
+   (Matches your screenshot)
+   ========================= */
+
+.product-grid{
+  width: min(1280px, 92%);
+  margin: 0 auto;
+  padding: 40px 0 80px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  gap: 22px;
 }
-@media (max-width: 1100px) {
-  .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1200px){
+  .product-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-@media (max-width: 820px) {
-  .navbar { padding: 16px 5%; }
-  .product-grid { padding: 30px 5% 70px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px){
+  .product-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width: 520px) {
-  .product-grid { grid-template-columns: 1fr; }
+@media (max-width: 560px){
+  .product-grid{ grid-template-columns: 1fr; }
 }
 
-.product-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 16px;
-  padding: 14px;
+.product-card{
+  background: #0b0b0b;
+  border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  min-height: 520px;
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
 }
-.product-card h3 {
-  margin: 4px 0 0;
-  font-size: 18px;
-  font-weight: 800;
+.product-card:hover{
+  border-color: rgba(255,43,43,0.55);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.55);
+  transform: translateY(-2px);
 }
-.product-card p { margin: 0; }
 
-.product-image {
+.product-image{
   width: 100%;
-  height: 220px;
-  border-radius: 14px;
+  height: 240px;
   object-fit: cover;
-  background: rgba(255,255,255,0.06);
+  background: #111;
 }
 
-/* ===== Contact + Footer ===== */
-.contact-section {
+.product-body{
+  padding: 18px 18px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.product-title{
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: .2px;
+}
+
+.product-row{
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  line-height: 1.35;
+  font-size: 16px;
+}
+.product-label{
+  color: rgba(255,255,255,0.80);
+  font-weight: 800;
+  min-width: 104px;
+}
+.product-value{
+  color: rgba(255,255,255,0.78);
+  font-weight: 500;
+}
+
+/* Button pinned at bottom like screenshot */
+.product-cta{
+  width: 100%;
+  border-radius: 0 0 18px 18px;
+  padding: 14px 16px;
+  font-weight: 900;
+  letter-spacing: .4px;
+}
+
+/* ---- Contact + Footer ---- */
+.contact-section{
   text-align: center;
-  padding: 70px 10%;
+  padding: 70px 8%;
   border-top: 1px solid rgba(255,255,255,0.08);
 }
-footer {
+footer{
   text-align: center;
-  padding: 26px 10%;
+  padding: 26px 8%;
   border-top: 1px solid rgba(255,255,255,0.08);
   color: rgba(255,255,255,0.65);
 }
 
-/* ===== Modal ===== */
-.modal {
+/* =========================
+   MODALS (Product/Quote/Contact)
+   ========================= */
+
+.modal{
   display: none;
   position: fixed;
   inset: 0;
   z-index: 200;
 }
-.modal.is-open { display: block; }
+.modal.is-open{ display: block; }
 
-.modal__overlay {
+.modal__overlay{
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.70);
+  background: rgba(0,0,0,0.72);
 }
 
-.modal__panel {
+.modal__panel{
   position: relative;
   width: min(980px, calc(100% - 24px));
   margin: 6vh auto 0;
@@ -161,7 +220,7 @@ footer {
   padding: 20px;
 }
 
-.modal__close {
+.modal__close{
   position: absolute;
   top: 12px;
   right: 12px;
@@ -173,19 +232,20 @@ footer {
   color: #fff;
   cursor: pointer;
 }
+.modal__close:hover{ border-color: rgba(255,43,43,0.55); }
 
-.modal__content {
+.modal__content{
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 18px;
   align-items: start;
 }
-@media (max-width: 820px) {
-  .modal__content { grid-template-columns: 1fr; }
-  .modal__panel { margin-top: 3vh; }
+@media (max-width: 820px){
+  .modal__content{ grid-template-columns: 1fr; }
+  .modal__panel{ margin-top: 3vh; }
 }
 
-.modal__media img {
+.modal__media img{
   width: 100%;
   height: 420px;
   object-fit: cover;
@@ -193,24 +253,32 @@ footer {
   background: rgba(255,255,255,0.06);
 }
 
-.modal__info h2 { margin: 6px 0 6px; }
-.modal__label {
-  font-weight: 800;
+.modal__info h2{ margin: 6px 0 6px; }
+.modal__label{
+  font-weight: 900;
   margin: 14px 0 8px;
   display: block;
+  color: rgba(255,255,255,0.92);
 }
+.modal__block{ margin-top: 10px; }
 
-/* ===== Chips ===== */
-.chipRow { display: flex; flex-wrap: wrap; gap: 10px; }
-.chip {
+/* ---- Chips ---- */
+.chipRow{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chip{
   padding: 10px 12px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.14);
   background: rgba(255,255,255,0.06);
   color: #fff;
   cursor: pointer;
+  font-weight: 800;
 }
-.chip.is-active {
-  border-color: rgba(255, 43, 43, 0.95);
-  background: rgba(255, 43, 43, 0.18);
+.chip:hover{ border-color: rgba(255,43,43,0.55); }
+.chip.is-active{
+  border-color: rgba(255,43,43,0.95);
+  background: rgba(255,43,43,0.18);
 }
