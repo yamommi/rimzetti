@@ -282,3 +282,86 @@ footer{
   border-color: rgba(255,43,43,0.95);
   background: rgba(255,43,43,0.18);
 }
+/* ===== Home Page ===== */
+.btn-primary-link{
+  display: inline-block;
+  background: #ff2b2b;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-weight: 900;
+  letter-spacing: .4px;
+}
+.btn-primary-link:hover{ filter: brightness(1.05); }
+.btn-primary-link:active{ transform: translateY(1px); }
+
+.btn-ghost-link{
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-weight: 900;
+  letter-spacing: .35px;
+}
+.btn-ghost-link:hover{ border-color: rgba(255,43,43,0.45); }
+
+.home{ padding-bottom: 40px; }
+
+.hero{
+  width: min(1280px, 92%);
+  margin: 0 auto;
+  padding: 70px 0 40px;
+}
+.hero__inner{
+  background: radial-gradient(1200px 500px at 20% 0%, rgba(255,43,43,0.18), transparent 55%),
+              radial-gradient(900px 600px at 80% 10%, rgba(255,255,255,0.08), transparent 55%),
+              rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 20px;
+  padding: 44px 32px;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+}
+.hero__title{
+  margin: 0 0 10px;
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 900;
+}
+.hero__sub{
+  max-width: 760px;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+}
+.hero__actions{
+  margin-top: 22px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.hero__note{ margin-top: 18px; }
+
+.home-section{
+  width: min(1280px, 92%);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.home-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+@media (max-width: 900px){
+  .home-grid{ grid-template-columns: 1fr; }
+}
+
+.home-card{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+.home-card h3{ margin: 0 0 10px; font-weight: 900; }
