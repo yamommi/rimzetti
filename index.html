@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Rimzetti — Luxury Wheel Empire</title>
 
-  <!-- IMPORTANT: relative paths (works on your custom domain + GitHub Pages) -->
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/favicon.jpg" />
 </head>
@@ -20,51 +18,106 @@
 
   <nav class="navlinks">
     <a href="index.html" class="is-active">Home</a>
-    <a href="shop.html">Rims</a>
-    <a class="btn-primary-link" href="shop.html">REQUEST QUOTE</a>
+    <a href="shop.html">Shop</a>
+
+    <a class="btn-primary-link" href="shop.html">Request Quote</a>
+
+    <!-- CONTACT BUTTON (EMAIL) -->
+    <a class="btn-primary-link btn-secondary" href="mailto:support@rimzetti.com?subject=Rimzetti%20Inquiry">
+      Contact Us
+    </a>
   </nav>
 </header>
 
 <main class="home">
-  <section class="hero">
-    <div class="hero__inner">
-      <h1 class="hero__title">Luxury Wheels. Built to Fit.</h1>
-      <p class="muted hero__sub">
-        Explore the Rimzetti catalog, choose your options, and request a custom quote after fitment confirmation.
+  <!-- HERO -->
+  <section class="hero2">
+    <div class="hero2__bg" aria-hidden="true"></div>
+
+    <div class="hero2__content">
+      <h1>Luxury Rims, Built to Fit.</h1>
+      <p>
+        Browse the Rimzetti catalog, choose your size & finish, and request a custom quote after fitment confirmation.
       </p>
 
-      <div class="hero__actions">
-        <a class="btn-primary-link" href="shop.html">Browse Rim Catalog</a>
-        <a class="btn-ghost-link" href="shop.html#contact">Contact Us</a>
+      <div class="hero2__actions">
+        <a class="btn-primary-link" href="shop.html">Browse Catalog</a>
+
+        <!-- CONTACT BUTTON (EMAIL) -->
+        <a class="btn-primary-link btn-secondary" href="mailto:support@rimzetti.com?subject=Rimzetti%20Inquiry">
+          Contact Us
+        </a>
       </div>
 
-      <div class="hero__note muted">
+      <div class="hero2__note">
         Pricing provided after fitment verification.
       </div>
     </div>
   </section>
 
-  <section class="home-section">
-    <div class="home-grid">
-      <div class="home-card">
-        <h3>Fitment First</h3>
-        <p class="muted">We verify your vehicle details before quoting to ensure perfect compatibility.</p>
+  <!-- ABOUT SECTION -->
+  <section class="pageSection" id="about">
+    <div class="sectionHead">
+      <h2>About Rimzetti</h2>
+      <p class="muted">
+        Rimzetti is a luxury wheel brand focused on premium style, proper fitment, and a clean customer experience from quote to delivery.
+      </p>
+    </div>
+
+    <div class="sectionGrid">
+      <div class="sectionCard">
+        <h3>Luxury Focus</h3>
+        <p class="muted">Premium finishes and aggressive designs built for standout builds.</p>
       </div>
-      <div class="home-card">
-        <h3>Luxury Finishes</h3>
-        <p class="muted">Select sizes, colors, and lug patterns — and we’ll tailor options to your build.</p>
+
+      <div class="sectionCard">
+        <h3>Fitment Verified</h3>
+        <p class="muted">We confirm vehicle specs before pricing to ensure the right setup.</p>
       </div>
-      <div class="home-card">
-        <h3>Fast Quotes</h3>
-        <p class="muted">Request a quote directly from any rim in the catalog.</p>
+
+      <div class="sectionCard">
+        <h3>Customer Support</h3>
+        <p class="muted">Questions beyond rims? Contact us anytime — we reply fast.</p>
       </div>
     </div>
   </section>
 
-  <section class="home-section center">
-    <h2>Ready to build your setup?</h2>
-    <p class="muted">Browse rims, choose options, and request a quote in seconds.</p>
-    <a class="btn-primary-link" href="shop.html" style="margin-top:14px; display:inline-block;">Go to Rim Catalog</a>
+  <!-- INFORMATION SECTION -->
+  <section class="pageSection" id="info">
+    <div class="sectionHead">
+      <h2>Information</h2>
+      <p class="muted">
+        Helpful details for customers before requesting a quote.
+      </p>
+    </div>
+
+    <div class="infoList">
+      <div class="infoItem">
+        <div class="infoTitle">Fitment & Compatibility</div>
+        <div class="muted">We confirm bolt pattern, offset, and size options based on your vehicle details.</div>
+      </div>
+
+      <div class="infoItem">
+        <div class="infoTitle">Quote Process</div>
+        <div class="muted">Select a rim → choose options → submit a quote request → we follow up after fitment verification.</div>
+      </div>
+
+      <div class="infoItem">
+        <div class="infoTitle">Shipping</div>
+        <div class="muted">Shipping cost depends on location and wheel specs. We’ll include it in your quote.</div>
+      </div>
+
+      <div class="infoItem">
+        <div class="infoTitle">Lead Time</div>
+        <div class="muted">Lead times vary by finish and availability. We confirm timelines after your request.</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 18px;">
+      <a class="btn-primary-link btn-secondary" href="mailto:support@rimzetti.com?subject=General%20Question%20(Non-Rim)">
+        Contact Us for General Questions
+      </a>
+    </div>
   </section>
 </main>
 
