@@ -1,128 +1,136 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rimzetti — Luxury Wheel Empire</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rimzetti — Luxury Wheel Empire</title>
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/favicon.jpg" />
+<link rel="stylesheet" href="style.css?v=22">
+<link rel="icon" href="images/favicon.jpg">
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <header class="navbar">
   <div class="logo">
-    <img src="images/banner.png" alt="Rimzetti Logo" />
+    <img src="images/banner.png" alt="Rimzetti Logo">
   </div>
 
   <nav class="navlinks">
     <a href="index.html" class="is-active">Home</a>
     <a href="shop.html">Shop</a>
-
     <a class="btn-primary-link" href="shop.html">Request Quote</a>
-
-    <!-- CONTACT BUTTON (EMAIL) -->
-    <a class="btn-primary-link btn-secondary" href="mailto:support@rimzetti.com?subject=Rimzetti%20Inquiry">
-      Contact Us
-    </a>
+    <a class="btn-primary-link" href="mailto:support@rimzetti.com">Support</a>
   </nav>
 </header>
 
-<main class="home">
-  <!-- HERO -->
-  <section class="hero2">
-    <div class="hero2__bg" aria-hidden="true"></div>
+<!-- HERO -->
 
-    <div class="hero2__content">
-      <h1>Luxury Rims, Built to Fit.</h1>
-      <p>
-        Browse the Rimzetti catalog, choose your size & finish, and request a custom quote after fitment confirmation.
-      </p>
+<section class="hero">
+  <div class="hero__inner center">
 
-      <div class="hero2__actions">
-        <a class="btn-primary-link" href="shop.html">Browse Catalog</a>
+```
+<h1 class="hero__title">Luxury Rims. Perfect Fit.</h1>
 
-        <!-- CONTACT BUTTON (EMAIL) -->
-        <a class="btn-primary-link btn-secondary" href="mailto:support@rimzetti.com?subject=Rimzetti%20Inquiry">
-          Contact Us
-        </a>
-      </div>
+<p class="hero__sub">
+  Premium forged wheels and custom fitment built for serious builds.
+  Browse the Rimzetti catalog and request your custom quote today.
+</p>
 
-      <div class="hero2__note">
-        Pricing provided after fitment verification.
-      </div>
-    </div>
-  </section>
+<div class="hero__actions">
+  <a href="shop.html" class="btn-primary-link">Browse Catalog</a>
+  <a href="mailto:support@rimzetti.com" class="btn-ghost-link">Contact Support</a>
+</div>
 
-  <!-- ABOUT SECTION -->
-  <section class="pageSection" id="about">
-    <div class="sectionHead">
-      <h2>About Rimzetti</h2>
-      <p class="muted">
-        Rimzetti is a luxury wheel brand focused on premium style, proper fitment, and a clean customer experience from quote to delivery.
-      </p>
-    </div>
+<div class="hero__note muted">
+  Pricing provided after vehicle fitment verification.
+</div>
+```
 
-    <div class="sectionGrid">
-      <div class="sectionCard">
-        <h3>Luxury Focus</h3>
-        <p class="muted">Premium finishes and aggressive designs built for standout builds.</p>
-      </div>
+  </div>
+</section>
 
-      <div class="sectionCard">
-        <h3>Fitment Verified</h3>
-        <p class="muted">We confirm vehicle specs before pricing to ensure the right setup.</p>
-      </div>
+<!-- HOW TO REQUEST -->
 
-      <div class="sectionCard">
-        <h3>Customer Support</h3>
-        <p class="muted">Questions beyond rims? Contact us anytime — we reply fast.</p>
-      </div>
-    </div>
-  </section>
+<section class="home-section">
+  <h2 class="page-title center">How to Request a Rim Quote</h2>
 
-  <!-- INFORMATION SECTION -->
-  <section class="pageSection" id="info">
-    <div class="sectionHead">
-      <h2>Information</h2>
-      <p class="muted">
-        Helpful details for customers before requesting a quote.
-      </p>
-    </div>
+  <div class="home-grid">
 
-    <div class="infoList">
-      <div class="infoItem">
-        <div class="infoTitle">Fitment & Compatibility</div>
-        <div class="muted">We confirm bolt pattern, offset, and size options based on your vehicle details.</div>
-      </div>
+```
+<div class="home-card">
+  <h3>1. Browse Rims</h3>
+  <p class="muted">Select a rim from our catalog and choose size, color and lug pattern.</p>
+</div>
 
-      <div class="infoItem">
-        <div class="infoTitle">Quote Process</div>
-        <div class="muted">Select a rim → choose options → submit a quote request → we follow up after fitment verification.</div>
-      </div>
+<div class="home-card">
+  <h3>2. Submit Request</h3>
+  <p class="muted">Send vehicle year, make and model so we verify perfect fitment.</p>
+</div>
 
-      <div class="infoItem">
-        <div class="infoTitle">Shipping</div>
-        <div class="muted">Shipping cost depends on location and wheel specs. We’ll include it in your quote.</div>
-      </div>
+<div class="home-card">
+  <h3>3. Confirm & Pay</h3>
+  <p class="muted">We confirm compatibility and send final price before payment.</p>
+</div>
 
-      <div class="infoItem">
-        <div class="infoTitle">Lead Time</div>
-        <div class="muted">Lead times vary by finish and availability. We confirm timelines after your request.</div>
-      </div>
-    </div>
+<div class="home-card">
+  <h3>4. Ship</h3>
+  <p class="muted">Secure delivery straight to your door.</p>
+</div>
+```
 
-    <div style="margin-top: 18px;">
-      <a class="btn-primary-link btn-secondary" href="mailto:support@rimzetti.com?subject=General%20Question%20(Non-Rim)">
-        Contact Us for General Questions
-      </a>
-    </div>
-  </section>
-</main>
+  </div>
+</section>
+
+<!-- SHIPPING & PROCESSING -->
+
+<section class="home-section center">
+  <h2 class="page-title">Shipping & Processing</h2>
+
+  <p class="muted" style="max-width:700px;margin:auto;">
+    Estimated processing time: <b>3–10 business days</b>.  
+    Transit time: <b>7–25 business days</b>.  
+    All orders are verified for compatibility before finalizing to protect your investment.
+  </p>
+</section>
+
+<!-- CONTACT CTA -->
+
+<section class="home-section center">
+  <h2 class="page-title">Let’s Build Your Perfect Rim Setup</h2>
+
+  <p class="muted">
+    Fitment questions, custom finishes, or hard-to-find wheels — our team handles it all.
+  </p>
+
+  <div style="margin-top:25px;">
+    <a href="mailto:support@rimzetti.com" class="btn-primary-link">Contact Support</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
 
 <footer>
-  <p>© 2026 Rimzetti — Luxury Wheel Empire</p>
+
+  <div style="margin-bottom:14px;">
+    <b>Rimzetti Rims LLC</b><br>
+    Jasper, TN • P.O. Box 821<br>
+    Sequatchie, TN 37374
+  </div>
+
+  <div style="margin-bottom:14px;">
+    Support Email: support@rimzetti.com
+  </div>
+
+  <div style="margin-bottom:20px;">
+    <a href="mailto:support@rimzetti.com" class="btn-primary-link">Email Support</a>
+  </div>
+
+© 2026 Rimzetti — Luxury Wheel Empire
+
 </footer>
 
 </body>
