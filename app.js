@@ -1,170 +1,138 @@
 /************************************
- Rimzetti — Quote Catalog System
- FULL PRODUCT LIST VERSION
+ Rimzetti — Shop + Quote Modal
+ CLEAN / STABLE / WORKING
 ************************************/
 
-/* =========================
+/* ==============================
    PRODUCT DATA
-   ========================= */
+============================== */
+
 const PRODUCTS = [
   {
-    itemNo: "Item No. 001",
+    itemNo: "001",
     name: "Forged Rims",
     img: "images/image-1.png",
-    sizes: ['18"', '19"', '20"', '22"'],
+    sizes: ["18 inch", "19 inch", "20 inch", "22 inch"],
     colors: ["Silver"],
-    lugs: ["5-lug"],
+    lugs: ["5-lug"]
   },
   {
-    itemNo: "Item No. 002",
+    itemNo: "002",
     name: "Rimzetti Apex Cast",
     img: "images/image-2.png",
-    sizes: ['18"', '19"', '20"'],
+    sizes: ["18 inch", "19 inch", "20 inch"],
     colors: ["Black"],
-    lugs: ["5-lug"],
+    lugs: ["5-lug"]
   },
   {
-    itemNo: "Item No. 003",
+    itemNo: "003",
     name: "Rimzetti Factory Edition",
     img: "images/image-3.png",
-    sizes: ['18"', '19"', '20"'],
+    sizes: ["18 inch", "19 inch", "20 inch"],
     colors: ["Hyper Black"],
-    lugs: ["5-lug"],
-  },
-  {
-    itemNo: "Item No. 004",
-    name: "Rimzetti Elite Black",
-    img: "images/image-4-black.png",
-    sizes: ['18"', '19"', '20"'],
-    colors: ["Black"],
-    lugs: ["5-lug"],
-  },
-  {
-    itemNo: "Item No. 005",
-    name: "Rimzetti Elite Bronze",
-    img: "images/image-4-bronze.png",
-    sizes: ['18"', '19"', '20"'],
-    colors: ["Bronze"],
-    lugs: ["5-lug"],
-  },
-  {
-    itemNo: "Item No. 006",
-    name: "Rimzetti Elite Red",
-    img: "images/image-4-red.png",
-    sizes: ['18"', '19"', '20"'],
-    colors: ["Red"],
-    lugs: ["5-lug"],
-  },
-  {
-    itemNo: "Item No. 007",
-    name: "Rimzetti Classic 5-Spoke",
-    img: "images/image-5.png",
-    sizes: ['17"', '18"'],
-    colors: ["Silver"],
-    lugs: ["5-lug"],
-  },
-  {
-    itemNo: "Item No. 008",
-    name: "Rimzetti Vortex",
-    img: "images/image-6.png",
-    sizes: ['18"', '19"'],
-    colors: ["Black"],
-    lugs: ["5-lug"],
-  },
-  {
-    itemNo: "Item No. 009",
-    name: "Rimzetti Racer X",
-    img: "images/image-7.png",
-    sizes: ['18"', '20"'],
-    colors: ["Gunmetal"],
-    lugs: ["5-lug"],
-  },
-  {
-    itemNo: "Item No. 010",
-    name: "Rimzetti Sport Edition",
-    img: "images/image-8.png",
-    sizes: ['19"', '20"'],
-    colors: ["Silver"],
-    lugs: ["5-lug"],
-  },
-  {
-    itemNo: "Item No. 011",
-    name: "Rimzetti Street Ready",
-    img: "images/image-9.png",
-    sizes: ['17"', '18"'],
-    colors: ["Black"],
-    lugs: ["5-lug"],
-  },
-  {
-    itemNo: "Item No. 012",
-    name: "Rimzetti Ultra Sport",
-    img: "images/image-10.png",
-    sizes: ['19"', '20"'],
-    colors: ["Chrome"],
-    lugs: ["5-lug"],
-  },
+    lugs: ["5-lug"]
+  }
 ];
 
-/* =========================
-   RENDER SHOP GRID
-   ========================= */
+
+/* ==============================
+   RENDER SHOP PRODUCTS
+============================== */
+
 function renderShop() {
-  const grid = document.querySelector(".product-grid");
-  if (!grid) return; // only run on shop page
+  const grid = document.getElementById("product-grid");
+  if (!grid) return;
 
   grid.innerHTML = "";
 
-  PRODUCTS.forEach((p) => {
+  PRODUCTS.forEach(product => {
     const card = document.createElement("div");
     card.className = "product-card";
 
     card.innerHTML = `
-      <img class="product-image" src="${p.img}" alt="${p.name}">
+      <img class="product-image" src="${product.img}" alt="${product.name}">
       <div class="product-body">
-        <h3 class="product-title">${p.name}</h3>
-
-        <div class="product-row">
-          <span class="product-label">Item:</span>
-          <span class="product-value">${p.itemNo}</span>
-        </div>
-
-        <div class="product-row">
-          <span class="product-label">Sizes:</span>
-          <span class="product-value">${p.sizes.join(", ")}</span>
-        </div>
-
-        <div class="product-row">
-          <span class="product-label">Finish:</span>
-          <span class="product-value">${p.colors.join(", ")}</span>
-        </div>
-
-        <div class="product-row">
-          <span class="product-label">Bolt:</span>
-          <span class="product-value">${p.lugs.join(", ")}</span>
-        </div>
+        <h3>${product.name}</h3>
+        <p class="muted">Item No. ${product.itemNo}</p>
+        <button 
+          class="btn-primary product-cta"
+          onclick="openQuoteForm({
+            itemNo: '${product.itemNo}',
+            rimName: '${product.name}',
+            size: '${product.sizes[0]}',
+            color: '${product.colors[0]}',
+            lugs: '${product.lugs[0]}'
+          })">
+          Request Quote
+        </button>
       </div>
-
-      <button class="btn-primary product-cta" onclick="sendQuote('${p.name}')">
-        Request Quote
-      </button>
     `;
 
     grid.appendChild(card);
   });
 }
 
-function sendQuote(productName) {
-  const modal = document.getElementById("quoteModal");
-  modal.style.display = "block";
 
-  const rimInput = document.getElementById("rimItem");
-  if (rimInput) {
-    rimInput.value = productName;
-  }
+/* ==============================
+   QUOTE MODAL SYSTEM
+============================== */
+
+function openQuoteForm(details = {}) {
+  const modal = document.getElementById("quote-modal");
+  if (!modal) return;
+
+  // Fill hidden fields
+  const setVal = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.value = value || "";
+  };
+
+  setVal("q-itemno", details.itemNo);
+  setVal("q-rim", details.rimName);
+  setVal("q-size", details.size);
+  setVal("q-color", details.color);
+  setVal("q-lugs", details.lugs);
+
+  modal.classList.add("is-open");
+  modal.setAttribute("aria-hidden", "false");
 }
-/* =========================
-   START SCRIPT SAFELY
-   ========================= */
-document.addEventListener("DOMContentLoaded", () => {
-  renderShop(); // only runs if product-grid exists
+
+function closeQuoteForm() {
+  const modal = document.getElementById("quote-modal");
+  if (!modal) return;
+
+  modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+// Close modal if clicking overlay
+document.addEventListener("click", function (e) {
+  const modal = document.getElementById("quote-modal");
+  if (!modal) return;
+
+  if (e.target.classList.contains("modal__overlay")) {
+    closeQuoteForm();
+  }
+});
+
+// Close with ESC key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    closeQuoteForm();
+  }
+});
+
+
+/* ==============================
+   PAGE INIT
+============================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const page = document.body.getAttribute("data-page");
+
+  if (page === "shop") {
+    renderShop();
+  }
+
 });
