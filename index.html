@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Rimzetti — Luxury Wheel Empire</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Rimzetti — Luxury Wheel Empire</title>
 
-  <!-- Force fresh CSS load -->
-  <link rel="stylesheet" href="style.css?v=20260227">
-
-  <!-- Favicon -->
-  <link rel="icon" href="images/favicon.jpg" />
+<link rel="stylesheet" href="style.css?v=20260227">
+<link rel="icon" href="images/favicon.jpg" />
 </head>
 
 <body>
@@ -17,7 +14,7 @@
 <!-- NAV -->
 <header class="navbar">
   <div class="logo">
-    <img src="images/banner.png" alt="Rimzetti Logo" />
+    <img src="images/logo.jpg" alt="Rimzetti Logo" />
   </div>
 
   <nav class="navlinks">
@@ -28,100 +25,67 @@
   </nav>
 </header>
 
-
-<!-- HERO SECTION -->
-<section class="hero">
-  <div class="hero__inner center">
-    <h1 class="hero__title">Rimzetti — Global Luxury Wheel Empire</h1>
-
-    <p class="hero__sub">
-      Premium forged wheels built with aggressive style and perfect fitment.
-      Browse the catalog and request your custom quote today.
+<!-- HERO -->
+<section class="hero" style="position: relative; overflow: hidden;">
+  <img src="images/banner.png" alt="Luxury Wheels Banner" style="width:100%; height:auto; object-fit:cover;">
+  <div style="position:absolute; inset:0; background:rgba(0,0,0,0.55); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:40px;">
+    <h1 style="font-size:48px; font-weight:900; color:#fff;">Rimzetti</h1>
+    <p style="font-size:20px; color:rgba(255,255,255,0.85); margin-bottom:18px;">
+      Global Luxury Wheel Empire
     </p>
-
-    <div class="hero__actions">
-      <a href="shop.html" class="btn-primary-link">Explore Collection</a>
-      <a href="mailto:support@rimzetti.com" class="btn-ghost-link">Contact Support</a>
-    </div>
-
-    <div class="hero__note muted">
-      Pricing provided after fitment verification.
-    </div>
+    <a href="shop.html" class="btn-primary-link" style="margin:8px;">Explore Collection</a>
+    <a href="mailto:support@rimzetti.com" class="btn-ghost-link" style="margin:8px;">Contact Support</a>
   </div>
 </section>
 
-
-<!-- HOW TO REQUEST -->
-<section class="home-section center">
-  <h2 class="page-title">How to Request a Rim Quote</h2>
-
-  <div class="home-grid">
-    <div class="home-card">
-      <h3>1. Browse Rims</h3>
-      <p class="muted">Choose your style, size, and finish.</p>
-    </div>
-
-    <div class="home-card">
-      <h3>2. Submit Request</h3>
-      <p class="muted">Provide vehicle details for fitment verification.</p>
-    </div>
-
-    <div class="home-card">
-      <h3>3. Confirm Fitment</h3>
-      <p class="muted">We confirm compatibility before pricing.</p>
-    </div>
-
-    <div class="home-card">
-      <h3>4. Shipping</h3>
-      <p class="muted">Secure delivery right to your door.</p>
-    </div>
+<!-- FEATURE BOXES -->
+<section style="padding:50px 8%; display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; text-align:center;">
+  <div class="feature-box" style="border-top:4px solid #ff2b2b; padding-top:18px;">
+    <h3>Forged Performance</h3>
+    <p class="muted">Engineered for power, speed, and durability.</p>
+  </div>
+  <div class="feature-box" style="border-top:4px solid #ff2b2b; padding-top:18px;">
+    <h3>Multi-Style Collection</h3>
+    <p class="muted">Street • Track • Luxury • Off-Road</p>
+  </div>
+  <div class="feature-box" style="border-top:4px solid #ff2b2b; padding-top:18px;">
+    <h3>Premium Materials</h3>
+    <p class="muted">Forged aluminum and elite finishes.</p>
   </div>
 </section>
 
-
-<!-- SHIPPING & PROCESSING -->
-<section class="home-section center">
-  <h2 class="page-title">Shipping & Processing</h2>
-
-  <p class="muted" style="max-width:720px; margin:auto;">
-    Estimated processing time: <b>3–10 business days</b>.  
-    Transit time: <b>7–25 business days</b>.  
-    All orders are verified for compatibility before final pricing to protect your investment.
-  </p>
+<!-- HOW IT WORKS -->
+<section style="padding:50px 8%; text-align:center;">
+  <h2 class="page-title">How Rimzetti Works</h2>
+  <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:24px; margin-top:24px;">
+    <div><h3>1. Browse</h3><p class="muted">Explore the catalog.</p></div>
+    <div><h3>2. Request</h3><p class="muted">Tell us your specs.</p></div>
+    <div><h3>3. Verify</h3><p class="muted">We confirm fitment.</p></div>
+    <div><h3>4. Ship</h3><p class="muted">Get secure delivery.</p></div>
+  </div>
 </section>
 
-
-<!-- CONTACT CALL TO ACTION -->
-<section class="home-section center">
-  <h2 class="page-title">Let’s Build Your Perfect Rim Setup</h2>
-
+<!-- SHIPPING INFO -->
+<section style="padding:40px 8%; text-align:center; border-top:1px solid rgba(255,255,255,0.08);">
+  <h2>Shipping & Fitment</h2>
   <p class="muted">
-    Fitment questions, custom finishes, or hard-to-find wheels — our team handles it all.
+    Estimated processing: <strong>3–10 business days</strong>.  
+    Transit: <strong>7–25 business days</strong>.  
+    All orders verified before final pricing to protect your investment.
   </p>
-
-  <div style="margin-top:24px;">
-    <a href="mailto:support@rimzetti.com" class="btn-primary-link">Contact Support</a>
-  </div>
 </section>
 
+<!-- CONTACT CTA -->
+<section style="padding:40px 8%; text-align:center;">
+  <h2>Let’s Build Your Perfect Setup</h2>
+  <a href="mailto:support@rimzetti.com" class="btn-primary-link">Contact Support</a>
+</section>
 
 <!-- FOOTER -->
-<footer>
-  <div style="margin-bottom:14px; font-size:15px; text-align:center;">
-    <b>Rimzetti Rims LLC</b><br>
-    Jasper, TN • P.O. Box 821<br>
-    Sequatchie, TN 37374
-  </div>
-
-  <div style="margin-bottom:10px; text-align:center;">
-    Support Email: <b>support@rimzetti.com</b>
-  </div>
-
-  <div style="text-align:center; margin-bottom:18px;">
-    <a href="mailto:support@rimzetti.com" class="btn-primary-link">Email Support</a>
-  </div>
-
-  <p style="text-align:center; opacity:0.6;">© 2026 Rimzetti — Luxury Wheel Empire</p>
+<footer style="border-top:1px solid rgba(255,255,255,0.08); padding:20px; text-align:center;">
+  <p>Rimzetti Rims LLC • Jasper, TN • P.O. Box 821, Sequatchie, TN 37374</p>
+  <p>Support: support@rimzetti.com</p>
+  <p>© 2026 Rimzetti — Luxury Wheel Empire</p>
 </footer>
 
 </body>
