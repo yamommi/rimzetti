@@ -1,152 +1,167 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+/************************************
+ Rimzetti — Quote-Only Catalog System
+ STABLE / WORKING / FINAL
+************************************/
 
-<title>Rimzetti Rim Catalog</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="images/favicon.jpg">
+// -------------------------------
+// PRODUCT DATA
+// -------------------------------
+const PRODUCTS = [
+  { itemNo: 'Item No. 001', name: 'Forged Rims', img: 'images/image-1.png', sizes: ['18"', '19"', '20"', '22"'], colors: ['Silver'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 002', name: 'Rimzetti Apex Cast', img: 'images/image-2.png', sizes: ['18"', '19"', '20"'], colors: ['Black'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 003', name: 'Rimzetti Factory Edition', img: 'images/image-3.png', sizes: ['18"', '19"', '20"'], colors: ['Hyper Black'], lugs: ['5-lug'] },
+  {
+    itemNo: 'Item No. 004',
+    name: 'Rimzetti Multi-Spoke',
+    img: 'images/image-4-black.png',
+    sizes: ['18"', '20"', '22"'],
+    colors: ['Matte Black', 'Bronze', 'Red'],
+    lugs: ['6-lug'],
+    imagesByColor: {
+      'Matte Black': 'images/image-4-black.png',
+      'Bronze': 'images/image-4-bronze.png',
+      'Red': 'images/image-4-red.png'
+    }
+  },
+  { itemNo: 'Item No. 005', name: 'Rimzetti Grey Edition', img: 'images/image-5.png', sizes: ['18"', '19"', '20"', '21"'], colors: ['Grey'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 006', name: 'Rimzetti Best Seller', img: 'images/image-6.png', sizes: ['17"', '18"', '19"', '20"'], colors: ['Black'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 007', name: 'Offroad Beadlock Alloy Wheel', img: 'images/image-7.png', sizes: ['17x8'], colors: ['Black'], lugs: ['5x127'] },
+  { itemNo: 'Item No. 008', name: 'Multi-Fit Alloy Wheel', img: 'images/image-8.png', sizes: ['15x7'], colors: ['Silver'], lugs: ['4x100', '4x114.3', '6-lug'] },
+  { itemNo: 'Item No. 009', name: 'Five-Spoke Performance Rim', img: 'images/image-9.png', sizes: ['15"', '16"', '17"', '18"'], colors: ['Silver'], lugs: ['5x114.3'] },
+  { itemNo: 'Item No. 010', name: 'Insert Style Rim', img: 'images/image-10.png', sizes: ['15"', '16"'], colors: ['Black'], lugs: ['4-lug', '5x114.3'] },
+  { itemNo: 'Item No. 011', name: 'Street Performance Rim', img: 'images/image-11.png', sizes: ['15"', '16"', '17"', '18"'], colors: ['Silver'], lugs: ['4-lug', '5-lug'] },
+  { itemNo: 'Item No. 012', name: 'Universal Multi-Lug Rim', img: 'images/image-12.png', sizes: ['14"–20"'], colors: ['Black'], lugs: ['4-lug', '5-lug', '6-lug', '8-lug'] }
+];
 
-</head>
-<body data-page="shop">
+// -------------------------------
+// STATE
+// -------------------------------
+let activeProduct = null;
+let selections = { size: '', color: '', lugs: '' };
 
-<header class="navbar">
-  <div class="logo">
-    <img src="images/logo.jpg" alt="Rimzetti Logo">
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="shop.html" class="is-active">Rims</a>
-    <button class="btn-primary" onclick="openQuoteForm()">Request Quote</button>
-  </nav>
-</header>
+// -------------------------------
+// HELPERS
+// -------------------------------
+const $ = (id) => document.getElementById(id);
 
-<h1 class="page-title">Rim Catalog</h1>
-<p class="muted" style="text-align:center;">
-Select your rim options and request a custom quote. Pricing is provided after fitment confirmation.
-</p>
+// -------------------------------
+// RENDER SHOP
+// -------------------------------
+function renderShop() {
+  const grid = $('product-grid');
+  if (!grid) return;
 
-<section id="product-grid" class="product-grid"></section>
+  grid.innerHTML = '';
 
-<section class="contact-section" id="contact" style="text-align: center; padding: 60px 10%;">
-  <h2>Contact Us</h2>
-  <p class="muted">For custom inquiries or fitment questions, reach out to our team.</p>
-  <button class="btn-primary" onclick="openContactForm()" style="margin-top: 20px;">
-    Send us a Message
-  </button>
-</section>
+  PRODUCTS.forEach(product => {
+    const card = document.createElement('article');
+    card.className = 'product';
 
-<footer>
-  <p>© 2026 Rimzetti — Luxury Wheel Empire</p>
-</footer>
+    card.innerHTML = `
+      <img src="${product.img}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p class="muted">${product.itemNo}</p>
+      <p>Sizes: ${product.sizes.join(', ')}</p>
+      <p>Colors: ${product.colors.join(', ')}</p>
+      <p>Lug Options: ${product.lugs.join(', ')}</p>
+      <button class="btn-primary btn-quote">Request Quote</button>
+    `;
 
-<!-- PRODUCT DETAILS MODAL (same as index) -->
-<div id="modal" class="modal">
-  <div class="modal__overlay" onclick="closeModal()"></div>
-  <div class="modal__panel">
-    <button class="modal__close" onclick="closeModal()">✕</button>
-    <div class="modal__content">
-      <div class="modal__media">
-        <img id="m-img">
-      </div>
-      <div class="modal__info">
-        <h2 id="m-title" class="modal__title"></h2>
-        <p id="m-itemno" class="muted" style="font-size:13px;"></p>
-        <div class="modal__price">Quote Required</div>
-        
-        <div class="modal__block">
-          <div class="modal__label">Select Size</div>
-          <div id="m-sizes" class="chipRow"></div>
-        </div>
+    card.addEventListener('click', () => openModal(product));
 
-        <div class="modal__block">
-          <div class="modal__label">Select Color</div>
-          <div id="m-colors" class="chipRow"></div>
-        </div>
+    grid.appendChild(card);
+  });
+}
 
-        <div class="modal__block">
-          <div class="modal__label">Lug Pattern</div>
-          <div id="m-lugs" class="chipRow"></div>
-        </div>
+// -------------------------------
+// PRODUCT MODAL
+// -------------------------------
+function openModal(product) {
+  activeProduct = product;
 
-        <button class="btn-primary" style="width:100%; margin-top:30px;"
-                onclick="openQuoteForm()">
-          Request Quote for this Rim
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+  selections.size = product.sizes[0] || '';
+  selections.color = product.colors[0] || '';
+  selections.lugs = product.lugs[0] || '';
 
-<!-- QUOTE FORM MODAL -->
-<div id="quote-modal" class="modal">
-  <div class="modal__overlay" onclick="closeQuoteForm()"></div>
-  <div class="modal__panel" style="max-width:720px; padding: 40px;">
-    <button class="modal__close" onclick="closeQuoteForm()">✕</button>
-    <div class="modal__info">
-      <h2 style="font-size: 28px;">Request a Rim Quote</h2>
-      <p class="muted" style="margin-bottom: 30px;">
-        Provide your details and we will verify fitment compatibility.
-      </p>
-      
-      <form name="rim-quote" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="rim-quote">
-        <input type="hidden" name="Item Number" id="q-itemno">
-        <input type="hidden" name="Rim Name" id="q-rim">
-        <input type="hidden" name="Size" id="q-size">
-        <input type="hidden" name="Color" id="q-color">
-        <input type="hidden" name="Lug Pattern" id="q-lugs">
+  $('m-title').textContent = product.name;
+  $('m-itemno').textContent = product.itemNo;
+  $('m-img').src = product.img;
 
-        <!-- Customer Name -->
-        <label class="modal__label" for="name1">Full Name</label>
-        <input class="input" id="name1" name="Name" type="text" 
-               autocomplete="name" placeholder="John Doe" required>
+  renderOptions(product);
+  $('modal').classList.add('is-open');
+}
 
-        <!-- Email -->
-        <label class="modal__label" for="email1">Email Address</label>
-        <input class="input" id="email1" name="Email" type="email" 
-               autocomplete="email" placeholder="john@example.com" required>
+function closeModal() {
+  $('modal').classList.remove('is-open');
+}
 
-        <!-- Shipping Zip Code -->
-        <label class="modal__label" for="q-zip">Shipping Zip Code</label>
-        <input class="input" id="q-zip" name="Zip Code" type="text" 
-               autocomplete="shipping postal-code" placeholder="90210" required>
+// -------------------------------
+// OPTIONS
+// -------------------------------
+function renderOptions(product) {
+  renderGroup('m-sizes', product.sizes, selections.size, v => selections.size = v);
+  renderGroup('m-colors', product.colors, selections.color, v => {
+    selections.color = v;
+    if (product.imagesByColor && product.imagesByColor[v]) {
+      $('m-img').src = product.imagesByColor[v];
+    }
+  });
+  renderGroup('m-lugs', product.lugs, selections.lugs, v => selections.lugs = v);
+}
 
-        <!-- Additional Info (Car details, customizations) -->
-        <label class="modal__label" for="notes">Vehicle & Additional Notes</label>
-        <textarea class="input" id="notes" name="Notes" rows="5" 
-                  autocomplete="off"
-                  placeholder="Vehicle: 2024 BMW M4 (Year, Make, Model)
-Color preferences: Matte Black
-Other customizations: ..."></textarea>
-        
-        <button type="submit" class="btn-primary" style="width:100%;">
-          Submit Quote Request
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
+function renderGroup(id, values, selected, onPick) {
+  const el = $(id);
+  el.innerHTML = '';
 
+  values.forEach(v => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'chip' + (v === selected ? ' is-active' : '');
+    btn.textContent = v;
 
-<div id="contact-modal" class="modal">
-  <div class="modal__overlay" onclick="closeContactForm()"></div>
-  <div class="modal__panel" style="max-width:600px; padding: 30px;">
-    <button class="modal__close" onclick="closeContactForm()">✕</button>
-    <div class="modal__info">
-      <h2>Contact Rimzetti</h2>
-      <form name="contact-us" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact-us">
-        <input class="input" name="name" required>
-        <label class="modal__label">Email</label>
-        <input class="input" type="email" name="email" required>
-        <label class="modal__label">Message</label>
-        <textarea class="input" name="message" rows="5" required></textarea>
-        <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
-      </form>
-    </div>
-  </div>
-</div>
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      onPick(v);
+      renderOptions(activeProduct);
+    });
 
-<script src="app.js"></script>
+    el.appendChild(btn);
+  });
+}
+
+// -------------------------------
+// QUOTE MODAL
+// -------------------------------
+function openQuoteForm() {
+  // hide product modal
+  $('modal').classList.remove('is-open');
+
+  $('q-itemno').value = activeProduct?.itemNo || '';
+  $('q-rim').value = activeProduct?.name || '';
+  $('q-size').value = selections.size || '';
+  $('q-color').value = selections.color || '';
+  $('q-lugs').value = selections.lugs || '';
+
+  // show quote modal – use same class as product modal
+  $('quote-modal').classList.add('is-open');
+}
+
+function closeQuoteForm() {
+  $('quote-modal').classList.remove('is-open');
+}
+
+// -------------------------------
+// CONTACT MODAL
+// -------------------------------
+function openContactForm() {
+  $('contact-modal').classList.add('is-open');
+}
+
+function closeContactForm() {
+  $('contact-modal').classList.remove('is-open');
+}
+
+// -------------------------------
+// INIT
+// -------------------------------
+document.addEventListener('DOMContentLoaded', renderShop);
