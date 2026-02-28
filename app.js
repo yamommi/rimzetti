@@ -7,30 +7,18 @@
    PRODUCT DATA
    ========================= */
 const PRODUCTS = [
-  { 
-    itemNo: 'Item No. 001', 
-    name: 'Forged Rims', 
-    img: 'images/image-1.png', 
-    sizes: ['18"', '19"', '20"', '22"'], 
-    colors: ['Silver'], 
-    lugs: ['5-lug'] 
-  },
-  { 
-    itemNo: 'Item No. 002', 
-    name: 'Rimzetti Apex Cast', 
-    img: 'images/image-2.png', 
-    sizes: ['18"', '19"', '20"'], 
-    colors: ['Black'], 
-    lugs: ['5-lug'] 
-  },
-  { 
-    itemNo: 'Item No. 003', 
-    name: 'Rimzetti Factory Edition', 
-    img: 'images/image-3.png', 
-    sizes: ['18"', '19"', '20"'], 
-    colors: ['Hyper Black'], 
-    lugs: ['5-lug'] 
-  }
+  { itemNo: 'Item No. 001', name: 'Forged Rims', img: 'images/image-1.png', sizes: ['18"','19"','20"'], colors: ['Silver'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 002', name: 'Rimzetti Apex Cast', img: 'images/image-2.png', sizes: ['18"','19"','20"'], colors: ['Black'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 003', name: 'Rimzetti Factory Edition', img: 'images/image-3.png', sizes: ['18"','19"','20"'], colors: ['Hyper Black'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 004', name: 'Rimzetti Elite V1', img: 'images/image-4-black.png', sizes: ['18"','19"','20"'], colors: ['Black'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 005', name: 'Rimzetti Elite Bronze', img: 'images/image-4-bronze.png', sizes: ['18"','19"','20"'], colors: ['Bronze'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 006', name: 'Rimzetti Elite Red', img: 'images/image-4-red.png', sizes: ['18"','19"','20"'], colors: ['Red'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 007', name: 'Rimzetti Classic 5-Spoke', img: 'images/image-5.png', sizes: ['17"','18"'], colors: ['Silver'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 008', name: 'Rimzetti Vortex', img: 'images/image-6.png', sizes: ['18"','19"'], colors: ['Black'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 009', name: 'Rimzetti Racer X', img: 'images/image-7.png', sizes: ['18"','20"'], colors: ['Gunmetal'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 010', name: 'Rimzetti Sport Edition', img: 'images/image-8.png', sizes: ['19"','20"'], colors: ['Silver'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 011', name: 'Rimzetti Street Ready', img: 'images/image-9.png', sizes: ['17"','18"'], colors: ['Black'], lugs: ['5-lug'] },
+  { itemNo: 'Item No. 012', name: 'Rimzetti Ultra Sport', img: 'images/image-10.png', sizes: ['19"','20"'], colors: ['Chrome'], lugs: ['5-lug'] }
 ];
 
 
