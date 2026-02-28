@@ -153,30 +153,15 @@ function renderShop() {
   });
 }
 
-/* =========================
-   EMAIL QUOTE BUTTON
-   ========================= */
 function sendQuote(productName) {
-  const subject = `Rim Quote Request — ${productName}`;
-  const body = `
-Hello Rimzetti,
+  const modal = document.getElementById("quoteModal");
+  modal.style.display = "block";
 
-I would like a quote for:
-${productName}
-
-Vehicle Year:
-Vehicle Make:
-Vehicle Model:
-Wheel Size Wanted:
-Finish Color:
-
-Thank you.
-`;
-  window.location.href = `mailto:support@rimzetti.com?subject=${encodeURIComponent(
-    subject
-  )}&body=${encodeURIComponent(body)}`;
+  const rimInput = document.getElementById("rimItem");
+  if (rimInput) {
+    rimInput.value = productName;
+  }
 }
-
 /* =========================
    START SCRIPT SAFELY
    ========================= */
