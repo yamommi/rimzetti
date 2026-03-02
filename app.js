@@ -32,31 +32,6 @@ const PRODUCTS = [
     colors: ["Hyper Black"],
     lugs: ["5-lug"]
   },
- const PRODUCTS = [
-  {
-    itemNo: "001",
-    name: "Forged Rims",
-    img: "images/image-1.png",
-    sizes: ["18 inch", "19 inch", "20 inch", "22 inch"],
-    colors: ["Silver"],
-    lugs: ["5-lug"]
-  },
-  {
-    itemNo: "002",
-    name: "Rimzetti Apex Cast",
-    img: "images/image-2.png",
-    sizes: ["18 inch", "19 inch", "20 inch"],
-    colors: ["Black"],
-    lugs: ["5-lug"]
-  },
-  {
-    itemNo: "003",
-    name: "Rimzetti Factory Edition",
-    img: "images/image-3.png",
-    sizes: ["18 inch", "19 inch", "20 inch"],
-    colors: ["Hyper Black"],
-    lugs: ["5-lug"]
-  },
   {
     itemNo: "004",
     name: "Rimzetti Series 4",
