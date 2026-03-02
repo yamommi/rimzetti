@@ -1,12 +1,4 @@
-/************************************
- Rimzetti — Shop + Quote Modal
- CLEAN / STABLE / WORKING
-************************************/
-
-/* ==============================
-   PRODUCT DATA
-============================== */
-
+/* ============================== PRODUCT DATA ============================== */
 const PRODUCTS = [
   {
     itemNo: "001",
@@ -35,9 +27,9 @@ const PRODUCTS = [
   {
     itemNo: "004",
     name: "Rimzetti Series 4",
-    img: "images/image-4-black.png", // This is the main display image
+    img: "images/image-4-black.png",
     sizes: ["18 inch", "19 inch", "20 inch"],
-    colors: ["Black", "Bronze", "Red"], // These will show up in the pop-up
+    colors: ["Black", "Bronze", "Red"],
     lugs: ["5-lug"]
   },
   {
@@ -50,7 +42,7 @@ const PRODUCTS = [
   },
   {
     itemNo: "006",
-    name: "Rimzetti深 Rim Deep",
+    name: "Rimzetti Rim Deep",
     img: "images/image-6.png",
     sizes: ["20 inch", "22 inch"],
     colors: ["Chrome", "Black"],
@@ -103,108 +95,59 @@ const PRODUCTS = [
     sizes: ["18 inch", "19 inch"],
     colors: ["Hyper Silver"],
     lugs: ["5-lug"]
-  },
+  }
 ];
 
-
-/* ==============================
-   RENDER SHOP PRODUCTS
-============================== */
-
+/* ============================== RENDER SHOP PRODUCTS ============================== */
 function renderShop() {
   const grid = document.getElementById("product-grid");
   if (!grid) return;
-
   grid.innerHTML = "";
 
   PRODUCTS.forEach(product => {
     const card = document.createElement("div");
     card.className = "product-card";
-
     card.innerHTML = `
-      <img class="product-image" src="${product.img}" alt="${product.name}">
-      <div class="product-body">
-        <h3>${product.name}</h3>
-        <p class="muted">Item No. ${product.itemNo}</p>
-        <button 
-          class="btn-primary product-cta"
-          onclick="openQuoteForm({
-            itemNo: '${product.itemNo}',
-            rimName: '${product.name}',
-            size: '${product.sizes[0]}',
-            color: '${product.colors[0]}',
-            lugs: '${product.lugs[0]}'
-          })">
-          Request Quote
-        </button>
-      </div>
+      <img src="${product.img}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p>Sizes: ${product.sizes.join(", ")}</p>
+      <button onclick="openQuoteForm('${product.itemNo}')">Get a Quote</button>
     `;
-
     grid.appendChild(card);
   });
 }
 
+/* ============================== MODAL LOGIC ============================== */
+function openQuoteForm(itemNo) {
+  const product = PRODUCTS.find(p => p.itemNo === itemNo);
+  if (!product) return;
 
-/* ==============================
-   QUOTE MODAL SYSTEM
-============================== */
-
-function openQuoteForm(details = {}) {
   const modal = document.getElementById("quote-modal");
-  if (!modal) return;
+  const modalTitle = document.getElementById("modal-product-name");
+  const sizeSelect = document.getElementById("quote-size");
+  const colorSelect = document.getElementById("quote-color");
+  const lugSelect = document.getElementById("quote-lugs");
 
-  // Fill hidden fields
-  const setVal = (id, value) => {
-    const el = document.getElementById(id);
-    if (el) el.value = value || "";
-  };
+  modalTitle.innerText = `Quote for ${product.name}`;
 
-  setVal("q-itemno", details.itemNo);
-  setVal("q-rim", details.rimName);
-  setVal("q-size", details.size);
-  setVal("q-color", details.color);
-  setVal("q-lugs", details.lugs);
+  // Fill Options
+  sizeSelect.innerHTML = product.sizes.map(s => `<option value="${s}">${s}</option>`).join("");
+  colorSelect.innerHTML = product.colors.map(c => `<option value="${c}">${c}</option>`).join("");
+  lugSelect.innerHTML = product.lugs.map(l => `<option value="${l}">${l}</option>`).join("");
 
-  modal.classList.add("is-open");
+  modal.classList.add("active");
   modal.setAttribute("aria-hidden", "false");
 }
 
 function closeQuoteForm() {
   const modal = document.getElementById("quote-modal");
-  if (!modal) return;
-
-  modal.classList.remove("is-open");
+  modal.classList.remove("active");
   modal.setAttribute("aria-hidden", "true");
 }
 
-// Close modal if clicking overlay
-document.addEventListener("click", function (e) {
-  const modal = document.getElementById("quote-modal");
-  if (!modal) return;
-
-  if (e.target.classList.contains("modal__overlay")) {
-    closeQuoteForm();
-  }
-});
-
-// Close with ESC key
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") {
-    closeQuoteForm();
-  }
-});
-
-
-/* ==============================
-   PAGE INIT
-============================== */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  const page = document.body.getAttribute("data-page");
-
-  if (page === "shop") {
+/* ============================== INITIALIZE ============================== */
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.body.dataset.page === "shop") {
     renderShop();
   }
-
 });
