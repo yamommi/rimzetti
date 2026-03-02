@@ -103,7 +103,7 @@ const PRODUCTS = [
     sizes: ["18 inch", "19 inch"],
     colors: ["Hyper Silver"],
     lugs: ["5-lug"]
-  }}
+  },
 ];
 
 
