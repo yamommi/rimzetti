@@ -218,9 +218,31 @@ function closeContactForm() {
   cModal.setAttribute("aria-hidden", "true");
 }
 
+/* ============================== SUCCESS BANNER ============================== */
+function showBanner(msg) {
+  const banner = document.createElement('div');
+  banner.className = 'success-banner';
+  banner.innerHTML = `
+    <span>${msg}</span>
+    <button onclick="this.parentElement.remove()" aria-label="Close">&times;</button>
+  `;
+  document.body.prepend(banner);
+  setTimeout(() => { if (banner.parentElement) banner.remove(); }, 8000);
+}
+
 /* ============================== INITIALIZE ============================== */
 document.addEventListener("DOMContentLoaded", () => {
   if (document.body.dataset.page === "shop") {
     renderShop();
+        // Show success banner if redirected back after form submit
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('submitted') === 'true') {
+      showBanner('Quote request received! We will verify fitment and email you a price within 1 business day.');
+      window.history.replaceState({}, '', '/shop.html');
+    }
+    if (params.get('contacted') === 'true') {
+      showBanner('Message sent! We will get back to you within 1 business day.');
+      window.history.replaceState({}, '', '/shop.html');
+    }
   }
 });
