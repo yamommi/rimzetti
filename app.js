@@ -103,46 +103,119 @@ function renderShop() {
   const grid = document.getElementById("product-grid");
   if (!grid) return;
   grid.innerHTML = "";
-
   PRODUCTS.forEach(product => {
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
-      <img src="${product.img}" alt="${product.name}">
-      <h3>${product.name}</h3>
-      <p>Sizes: ${product.sizes.join(", ")}</p>
-      <button onclick="openQuoteForm('${product.itemNo}')">Get a Quote</button>
+      <img class="product-image" src="${product.img}" alt="${product.name}" loading="lazy">
+      <div class="product-body">
+        <h3 class="product-title">${product.name}</h3>
+        <div class="product-row">
+          <span class="product-label">Sizes:</span>
+          <span class="product-value">${product.sizes.join(", ")}</span>
+        </div>
+        <div class="product-row">
+          <span class="product-label">Colors:</span>
+          <span class="product-value">${product.colors.join(", ")}</span>
+        </div>
+        <div class="product-row">
+          <span class="product-label">Lug Pattern:</span>
+          <span class="product-value">${product.lugs.join(", ")}</span>
+        </div>
+      </div>
+      <button class="btn-primary product-cta" type="button" onclick="openModal('${product.itemNo}')">
+        VIEW &amp; QUOTE
+      </button>
     `;
     grid.appendChild(card);
   });
 }
 
-/* ============================== MODAL LOGIC ============================== */
-function openQuoteForm(itemNo) {
+/* ============================== PRODUCT MODAL ============================== */
+let _activeProduct = null;
+
+function openModal(itemNo) {
   const product = PRODUCTS.find(p => p.itemNo === itemNo);
   if (!product) return;
+  _activeProduct = product;
 
-  const modal = document.getElementById("quote-modal");
-  const modalTitle = document.getElementById("modal-product-name");
-  const sizeSelect = document.getElementById("quote-size");
-  const colorSelect = document.getElementById("quote-color");
-  const lugSelect = document.getElementById("quote-lugs");
+  document.getElementById("m-title").textContent = product.name;
+  document.getElementById("m-itemno").textContent = "Item #" + product.itemNo;
+  document.getElementById("m-img").src = product.img;
+  document.getElementById("m-img").alt = product.name;
 
-  modalTitle.innerText = `Quote for ${product.name}`;
+  // Render size chips
+  const sizesEl = document.getElementById("m-sizes");
+  sizesEl.innerHTML = product.sizes.map((s, i) =>
+    `<button type="button" class="chip${i === 0 ? ' is-active' : ''}" onclick="selectChip(this, 'm-sizes')">${s}</button>`
+  ).join("");
 
-  // Fill Options
-  sizeSelect.innerHTML = product.sizes.map(s => `<option value="${s}">${s}</option>`).join("");
-  colorSelect.innerHTML = product.colors.map(c => `<option value="${c}">${c}</option>`).join("");
-  lugSelect.innerHTML = product.lugs.map(l => `<option value="${l}">${l}</option>`).join("");
+  // Render color chips
+  const colorsEl = document.getElementById("m-colors");
+  colorsEl.innerHTML = product.colors.map((c, i) =>
+    `<button type="button" class="chip${i === 0 ? ' is-active' : ''}" onclick="selectChip(this, 'm-colors')">${c}</button>`
+  ).join("");
 
-  modal.classList.add("active");
+  // Render lug chips
+  const lugsEl = document.getElementById("m-lugs");
+  lugsEl.innerHTML = product.lugs.map((l, i) =>
+    `<button type="button" class="chip${i === 0 ? ' is-active' : ''}" onclick="selectChip(this, 'm-lugs')">${l}</button>`
+  ).join("");
+
+  const modal = document.getElementById("modal");
+  modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
 }
 
-function closeQuoteForm() {
-  const modal = document.getElementById("quote-modal");
-  modal.classList.remove("active");
+function closeModal() {
+  const modal = document.getElementById("modal");
+  modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
+}
+
+function selectChip(btn, rowId) {
+  const row = document.getElementById(rowId);
+  row.querySelectorAll(".chip").forEach(c => c.classList.remove("is-active"));
+  btn.classList.add("is-active");
+}
+
+/* ============================== QUOTE MODAL ============================== */
+function openQuoteForm() {
+  if (_activeProduct) {
+    document.getElementById("q-itemno").value = _activeProduct.itemNo;
+    document.getElementById("q-rim").value = _activeProduct.name;
+    const activeSize = document.querySelector("#m-sizes .chip.is-active");
+    const activeColor = document.querySelector("#m-colors .chip.is-active");
+    const activeLug = document.querySelector("#m-lugs .chip.is-active");
+    document.getElementById("q-size").value = activeSize ? activeSize.textContent : "";
+    document.getElementById("q-color").value = activeColor ? activeColor.textContent : "";
+    document.getElementById("q-lugs").value = activeLug ? activeLug.textContent : "";
+  }
+  closeModal();
+  const qModal = document.getElementById("quote-modal");
+  qModal.classList.add("is-open");
+  qModal.setAttribute("aria-hidden", "false");
+}
+
+function closeQuoteForm() {
+  const qModal = document.getElementById("quote-modal");
+  qModal.classList.remove("is-open");
+  qModal.setAttribute("aria-hidden", "true");
+}
+
+/* ============================== CONTACT MODAL ============================== */
+function openContactForm() {
+  const cModal = document.getElementById("contact-modal");
+  if (!cModal) return;
+  cModal.classList.add("is-open");
+  cModal.setAttribute("aria-hidden", "false");
+}
+
+function closeContactForm() {
+  const cModal = document.getElementById("contact-modal");
+  if (!cModal) return;
+  cModal.classList.remove("is-open");
+  cModal.setAttribute("aria-hidden", "true");
 }
 
 /* ============================== INITIALIZE ============================== */
