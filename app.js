@@ -174,29 +174,29 @@ const PRODUCTS = [
   {
     itemNo: "020",
     name: "Rimzetti Chrome Blade",
-        img: "https://placehold.co/600x600/0f0f0f/ff2b2b?text=Coming+Soon",
+              img: "https://s.alicdn.com/@sc04/kf/H6c715958a47c498f8679a6fe5108ace4e.jpg_300x300.jpg",
     sizes: ["18 inch", "19 inch", "20 inch"],
     colors: ["Chrome", "Hyper Silver"],
     lugs: ["5-lug"],
-    supplier: "https://www.alibaba.com/showroom/chrome-alloy-wheels.html"
+        supplier: "https://www.alibaba.com/product-detail/Chrome-Polish-18-19-20-21_1601686067643.html"
   },
   {
     itemNo: "021",
     name: "Rimzetti Spoke Sport",
-        img: "https://placehold.co/600x600/0f0f0f/ff2b2b?text=Coming+Soon",
+              img: "https://s.alicdn.com/@sc04/kf/H6406b5be91434e0aa79dc07a29b627f7u.png_300x300.jpg",
     sizes: ["17 inch", "18 inch", "19 inch"],
     colors: ["Silver", "Matte Grey"],
     lugs: ["5-lug"],
-    supplier: "https://www.alibaba.com/showroom/spoke-sport-wheels.html"
+        supplier: "https://www.alibaba.com/product-detail/Racing-Wheels-1-piece-17-18_1601445063368.html"
   },
   {
     itemNo: "022",
     name: "Rimzetti Gloss White GTR",
-        img: "https://placehold.co/600x600/0f0f0f/ff2b2b?text=Coming+Soon",
+              img: "https://s.alicdn.com/@sc04/kf/H5e45d1b6ce274724b1b363df8db0ddd1o.png_300x300.jpg",
     sizes: ["18 inch", "19 inch", "20 inch"],
     colors: ["Gloss White", "Pearl White"],
     lugs: ["5-lug"],
-    supplier: "https://www.alibaba.com/showroom/white-forged-wheels.html"
+        supplier: "https://www.alibaba.com/product-detail/18-19-20-Inch-Customize-Multi_1601681270737.html"
   }
 ];
 
