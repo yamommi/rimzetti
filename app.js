@@ -115,31 +115,30 @@ function renderShop() {
   const grid = document.getElementById("product-grid");
   if (!grid) return;
   grid.innerHTML = "";
-  
+
   PRODUCTS.forEach(product => {
     const card = document.createElement("div");
     card.className = "product-card";
-    card.innerHTML = `
-      <img class="product-image" src="${product.img}" alt="${product.name}" loading="lazy">
-      <div class="product-body">
-        <h3 class="product-title">${product.name}</h3>
-        <div class="product-row">
-          <span class="product-label">Sizes:</span>
-          <span class="product-value">${product.sizes.join(", ")}</span>
-        </div>
-        <div class="product-row">
-          <span class="product-label">Colors:</span>
-          <span class="product-value">${product.colors.join(", ")}</span>
-        </div>
-        <div class="product-row">
-          <span class="product-label">Lug Pattern:</span>
-          <span class="product-value">${product.lugs.join(", ")}</span>
-        </div>
-      </div>
-      <button class="btn-primary product-cta" type="button" onclick="openModal('${product.itemNo}')">
-        VIEW & QUOTE
-      </button>
-    `;
+    card.innerHTML =
+      '<img class="product-image" src="' + product.img + '" alt="' + product.name + '" loading="lazy">' +
+      '<div class="product-body">' +
+        '<h3 class="product-title">' + product.name + '</h3>' +
+        '<div class="product-row">' +
+          '<span class="product-label">Sizes:</span>' +
+          '<span class="product-value">' + product.sizes.join(", ") + '</span>' +
+        '</div>' +
+        '<div class="product-row">' +
+          '<span class="product-label">Colors:</span>' +
+          '<span class="product-value">' + product.colors.join(", ") + '</span>' +
+        '</div>' +
+        '<div class="product-row">' +
+          '<span class="product-label">Lug Pattern:</span>' +
+          '<span class="product-value">' + product.lugs.join(", ") + '</span>' +
+        '</div>' +
+      '</div>' +
+      '<button class="btn-primary product-cta" type="button" onclick="openModal(\'' + product.itemNo + '\')">' +
+        'VIEW & QUOTE' +
+      '</button>';
     grid.appendChild(card);
   });
 }
@@ -151,16 +150,16 @@ function openModal(itemNo) {
   const product = PRODUCTS.find(p => p.itemNo === itemNo);
   if (!product) return;
   _activeProduct = product;
-  
+
   document.getElementById("m-title").textContent = product.name;
   document.getElementById("m-itemno").textContent = "Item #" + product.itemNo;
   document.getElementById("m-img").src = product.img;
   document.getElementById("m-img").alt = product.name;
-  
+
   const supplierBox = document.getElementById("m-supplier");
   if (supplierBox) {
     if (product.supplier) {
-      supplierBox.innerHTML = \`<a href="${product.supplier}" target="_blank" class="supplier-link">View Alibaba Supplier Link</a>\`;
+      supplierBox.innerHTML = '<a href="' + product.supplier + '" target="_blank" class="supplier-link">View Alibaba Supplier Link</a>';
       supplierBox.style.display = "block";
     } else {
       supplierBox.style.display = "none";
@@ -170,7 +169,7 @@ function openModal(itemNo) {
   renderChips("m-sizes", product.sizes);
   renderChips("m-colors", product.colors);
   renderChips("m-lugs", product.lugs);
-  
+
   const modal = document.getElementById("modal");
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
@@ -179,9 +178,9 @@ function openModal(itemNo) {
 function renderChips(rowId, items) {
   const row = document.getElementById(rowId);
   if (!row) return;
-  row.innerHTML = items.map((item, i) => 
-    \`<button type="button" class="chip\${i === 0 ? ' is-active' : ''}" onclick="selectChip(this, '\${rowId}')">\${item}</button>\`
-  ).join("");
+  row.innerHTML = items.map(function(item, i) {
+    return '<button type="button" class="chip' + (i === 0 ? ' is-active' : '') + '" onclick="selectChip(this, \'' + rowId + '\')">' + item + '</button>';
+  }).join("");
 }
 
 function closeModal() {
@@ -192,7 +191,7 @@ function closeModal() {
 
 function selectChip(btn, rowId) {
   const row = document.getElementById(rowId);
-  row.querySelectorAll(".chip").forEach(c => c.classList.remove("is-active"));
+  row.querySelectorAll(".chip").forEach(function(c) { c.classList.remove("is-active"); });
   btn.classList.add("is-active");
 }
 
@@ -201,11 +200,11 @@ function openQuoteForm() {
   if (_activeProduct) {
     document.getElementById("q-itemno").value = _activeProduct.itemNo;
     document.getElementById("q-rim").value = _activeProduct.name;
-    
+
     const activeSize = document.querySelector("#m-sizes .chip.is-active");
     const activeColor = document.querySelector("#m-colors .chip.is-active");
     const activeLug = document.querySelector("#m-lugs .chip.is-active");
-    
+
     document.getElementById("q-size").value = activeSize ? activeSize.textContent : "";
     document.getElementById("q-color").value = activeColor ? activeColor.textContent : "";
     document.getElementById("q-lugs").value = activeLug ? activeLug.textContent : "";
@@ -241,16 +240,15 @@ function closeContactForm() {
 function showBanner(msg) {
   const banner = document.createElement('div');
   banner.className = 'success-banner';
-  banner.innerHTML = \`
-    <span>\${msg}</span>
-    <button onclick="this.parentElement.remove()" aria-label="Close">×</button>
-  \`;
+  banner.innerHTML =
+    '<span>' + msg + '</span>' +
+    '<button onclick="this.parentElement.remove()" aria-label="Close">x</button>';
   document.body.prepend(banner);
-  setTimeout(() => { if (banner.parentElement) banner.remove(); }, 8000);
+  setTimeout(function() { if (banner.parentElement) banner.remove(); }, 8000);
 }
 
 /* ============================== INITIALIZE ============================== */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function() {
   if (document.body.dataset.page === "shop") {
     renderShop();
     const params = new URLSearchParams(window.location.search);
