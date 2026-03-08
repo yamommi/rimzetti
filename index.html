@@ -1,92 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Rimzetti &mdash; Luxury Wheel Empire</title>
-  <meta name="description" content="Rimzetti offers premium forged and cast aftermarket rims shipped to your door. Browse our luxury wheel catalog and request a custom quote today." />
-  <meta name="keywords" content="luxury rims, aftermarket wheels, forged rims, cast wheels, custom wheels, rimzetti" />
-  <link rel="stylesheet" href="style.css?v=20260308">
-  <link rel="icon" href="images/favicon.jpg" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rimzetti — Luxury Wheel Empire</title>
+    <meta name="description" content="Rimzetti offers premium forged and cast aftermarket rims shipped to your door. Browse our luxury wheel catalog and request a custom quote today." />
+    <meta name="keywords" content="luxury rims, aftermarket wheels, forged rims, cast wheels, custom wheels, rimzetti" />
+    <link rel="stylesheet" href="style.css?v=20260308" />
+    <link rel="icon" href="images/favicon.jpg" />
 </head>
-<body>
+<body class="home">
+
 <!-- NAV -->
 <header class="navbar">
-  <div class="logo">
-    <img src="images/logo.jpg" alt="Rimzetti Logo" />
-  </div>
-  <nav class="navlinks">
-    <a href="index.html" class="is-active">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="about.html">About</a>
-    <a class="btn-primary-link" href="shop.html">Request Quote</a>
-    <a class="btn-primary-link btn-secondary" href="mailto:support@rimzetti.com">Contact</a>
-  </nav>
+    <div class="logo">
+        <a href="index.html"><img src="images/logo.jpg" alt="Rimzetti Logo" /></a>
+    </div>
+    <nav class="navlinks">
+        <a href="index.html" class="is-active">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="shop.html" class="btn-primary quote-btn-nav">Request Quote</a>
+    </nav>
 </header>
+
 <!-- HERO -->
-<section class="hero" style="position: relative; overflow: hidden;">
-  <img src="images/banner.png" alt="Luxury Wheels Banner" style="width:100%; height:auto; object-fit:cover;">
-  <div style="position:absolute; inset:0; background:rgba(0,0,0,0.55); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:40px;">
-    <h1 style="font-size:48px; font-weight:900; color:#fff;">Rimzetti</h1>
-    <p style="font-size:20px; color:rgba(255,255,255,0.85); margin-bottom:18px;">
-      Global Luxury Wheel Empire
-    </p>
-    <a href="shop.html" class="btn-primary-link" style="margin:8px;">Explore Collection</a>
-    <a href="mailto:support@rimzetti.com" class="btn-ghost-link" style="margin:8px;">Contact Support</a>
-  </div>
+<section class="hero">
+    <div class="hero__inner">
+        <h1 class="hero__title">Rimzetti</h1>
+        <p class="hero__sub">
+            Global Luxury Wheel Empire. Premium forged and cast rims engineered for elite performance and style.
+        </p>
+        <div class="hero__actions">
+            <a href="shop.html" class="btn-primary">Explore Collection</a>
+            <a href="about.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: #fff;">Learn More</a>
+        </div>
+    </div>
 </section>
-<!-- FEATURE BOXES -->
-<section style="padding:50px 8%; display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; text-align:center;">
-  <div class="feature-box" style="border-top:4px solid #ff2b2b; padding-top:18px;">
-    <h3>Forged Performance</h3>
-    <p class="muted">Engineered for power, speed, and durability.</p>
-  </div>
-  <div class="feature-box" style="border-top:4px solid #ff2b2b; padding-top:18px;">
-    <h3>Multi-Style Collection</h3>
-    <p class="muted">Street &bull; Track &bull; Luxury &bull; Off-Road</p>
-  </div>
-  <div class="feature-box" style="border-top:4px solid #ff2b2b; padding-top:18px;">
-    <h3>Premium Materials</h3>
-    <p class="muted">Forged aluminum and elite finishes.</p>
-  </div>
+
+<!-- FEATURES -->
+<section class="home-section">
+    <div class="home-grid">
+        <div class="home-card">
+            <h3>Forged Performance</h3>
+            <p class="muted">Engineered for power, speed, and durability with elite aluminum alloys.</p>
+        </div>
+        <div class="home-card">
+            <h3>Custom Fitment</h3>
+            <p class="muted">Every order is verified by our experts to ensure perfect bolt patterns and offsets.</p>
+        </div>
+        <div class="home-card">
+            <h3>Global Shipping</h3>
+            <p class="muted">Secure, insured delivery direct to your door or preferred shop worldwide.</p>
+        </div>
+    </div>
 </section>
+
 <!-- HOW IT WORKS -->
-<section style="padding:50px 8%; text-align:center;">
-  <h2 class="page-title">How Rimzetti Works</h2>
-  <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:24px; margin-top:24px;">
-    <div><h3>1. Browse</h3><p class="muted">Explore the catalog.</p></div>
-    <div><h3>2. Request</h3><p class="muted">Tell us your specs.</p></div>
-    <div><h3>3. Verify</h3><p class="muted">We confirm fitment.</p></div>
-    <div><h3>4. Ship</h3><p class="muted">Get secure delivery.</p></div>
-  </div>
+<section class="home-section center">
+    <h2 class="page-title">How It Works</h2>
+    <div class="home-grid" style="margin-top: 30px;">
+        <div class="center">
+            <h1 style="color: #ff2b2b; margin: 0;">1</h1>
+            <p><strong>Browse Catalog</strong></p>
+            <p class="muted">Find your style.</p>
+        </div>
+        <div class="center">
+            <h1 style="color: #ff2b2b; margin: 0;">2</h1>
+            <p><strong>Request Quote</strong></p>
+            <p class="muted">Send us your specs.</p>
+        </div>
+        <div class="center">
+            <h1 style="color: #ff2b2b; margin: 0;">3</h1>
+            <p><strong>Verify & Pay</strong></p>
+            <p class="muted">Confirm details.</p>
+        </div>
+    </div>
 </section>
-<!-- SHIPPING INFO -->
-<section style="padding:40px 8%; text-align:center; border-top:1px solid rgba(255,255,255,0.08);">
-  <h2>Shipping &amp; Fitment</h2>
-  <p class="muted">
-    Estimated processing: <strong>3&ndash;10 business days</strong>.<br />
-    Transit: <strong>7&ndash;25 business days</strong>.<br />
-    All orders verified before final pricing to protect your investment.
-  </p>
-</section>
-<!-- CONTACT CTA -->
-<section style="padding:40px 8%; text-align:center;">
-  <h2>Let's Build Your Perfect Setup</h2>
-  <a href="mailto:support@rimzetti.com" class="btn-primary-link">Contact Support</a>
-</section>
+
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <p>Rimzetti Rims LLC &bull; Jasper, TN &bull; P.O. Box 821, Sequatchie, TN 37374</p>
-    <p>support@rimzetti.com</p>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/rimzetti" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        Instagram
-      </a>
+    <div class="footer-inner">
+        <p>Rimzetti Rims LLC • Jasper, TN • P.O. Box 821, Sequatchie, TN 37374</p>
+        <p>support@rimzetti.com</p>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/rimzetti" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                Instagram
+            </a>
+        </div>
+        <p style="opacity: 0.5; margin-top: 20px;">© 2026 Rimzetti — Luxury Wheel Empire</p>
     </div>
-    <p style="color:rgba(255,255,255,0.4); font-size:13px;">&copy; 2026 Rimzetti &mdash; Luxury Wheel Empire</p>
-  </div>
 </footer>
+
 </body>
 </html>
