@@ -246,15 +246,6 @@ function openModal(itemNo) {
   document.getElementById("m-img").src = product.img;
   document.getElementById("m-img").alt = product.name;
 
-  const supplierBox = document.getElementById("m-supplier");
-  if (supplierBox) {
-    if (product.supplier) {
-      supplierBox.innerHTML = '<a href="' + product.supplier + '" target="_blank" class="supplier-link">View Alibaba Supplier Link</a>';
-      supplierBox.style.display = "block";
-    } else {
-      supplierBox.style.display = "none";
-    }
-  }
 
   renderChips("m-sizes", product.sizes);
   renderChips("m-colors", product.colors);
