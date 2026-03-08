@@ -111,7 +111,7 @@ const PRODUCTS = [
   {
     itemNo: "013",
     name: "Rimzetti Flow King",
-    img: "images/image-13.png",
+        img: "https://s.alicdn.com/@sc04/kf/H2ff6a1e85baa41e6b02fe5a5e2b2a2a9P.jpg_300x300.jpg",
     sizes: ["18 inch", "19 inch", "20 inch"],
     colors: ["Silver", "Gunmetal"],
     lugs: ["5-lug"],
@@ -120,7 +120,7 @@ const PRODUCTS = [
   {
     itemNo: "014",
     name: "Rimzetti Black Machine",
-    img: "images/image-14.png",
+        img: "https://s.alicdn.com/@sc04/kf/H4e7c73b1e6ea4a78bf0a12b58dd5d2a1X.jpg_300x300.jpg",
     sizes: ["16 inch", "17 inch", "18 inch", "19 inch"],
     colors: ["Black Machine", "Silver Face"],
     lugs: ["4-lug", "5-lug"],
@@ -129,7 +129,7 @@ const PRODUCTS = [
   {
     itemNo: "015",
     name: "Rimzetti OEM Series",
-    img: "images/image-15.png",
+        img: "https://s.alicdn.com/@sc04/kf/H3af23c7f44014c36aace0f6c2e3a5d61g.jpg_300x300.jpg",
     sizes: ["17 inch", "18 inch", "19 inch", "20 inch"],
     colors: ["Silver", "Gunmetal"],
     lugs: ["5-lug"],
@@ -138,7 +138,7 @@ const PRODUCTS = [
   {
     itemNo: "016",
     name: "Rimzetti GVICHN Forged",
-    img: "images/image-16.png",
+        img: "https://s.alicdn.com/@sc04/kf/H5e9ccaf3ac8c41fe982e3af23cad5bd0g.jpg_300x300.jpg",
     sizes: ["18 inch", "19 inch", "20 inch", "22 inch"],
     colors: ["Gloss Black", "Matte Black"],
     lugs: ["5-lug"],
@@ -147,7 +147,7 @@ const PRODUCTS = [
   {
     itemNo: "017",
     name: "Rimzetti Multi-Spoke Concave",
-    img: "images/image-17.png",
+        img: "https://s.alicdn.com/@sc04/kf/Hca5b72c3b6d24d0a8b5ab1c76c71c38fg.jpg_300x300.jpg",
     sizes: ["18 inch", "19 inch", "20 inch", "21 inch", "22 inch"],
     colors: ["Black", "Silver", "Bronze"],
     lugs: ["5-lug"],
@@ -156,7 +156,7 @@ const PRODUCTS = [
   {
     itemNo: "018",
     name: "Rimzetti Flow FI-R",
-    img: "images/image-18.png",
+        img: "https://s.alicdn.com/@sc04/kf/H1f23a0c7c59a4a43b40d1a8e9b49c1b0g.jpg_300x300.jpg",
     sizes: ["19 inch", "20 inch"],
     colors: ["Silver", "Gunmetal"],
     lugs: ["5-lug"],
@@ -165,7 +165,7 @@ const PRODUCTS = [
   {
     itemNo: "019",
     name: "Rimzetti Black Multi-Spoke",
-    img: "images/image-19.png",
+        img: "https://s.alicdn.com/@sc04/kf/H9bd37af8eb4441c3b03f47a2e0e44b7dD.jpg_300x300.jpg",
     sizes: ["15 inch", "16 inch", "17 inch", "18 inch", "19 inch"],
     colors: ["Gloss Black", "Matte Black"],
     lugs: ["4-lug", "5-lug"],
@@ -174,7 +174,7 @@ const PRODUCTS = [
   {
     itemNo: "020",
     name: "Rimzetti Chrome Blade",
-    img: "images/image-20.png",
+        img: "https://placehold.co/600x600/0f0f0f/ff2b2b?text=Coming+Soon",
     sizes: ["18 inch", "19 inch", "20 inch"],
     colors: ["Chrome", "Hyper Silver"],
     lugs: ["5-lug"],
@@ -183,7 +183,7 @@ const PRODUCTS = [
   {
     itemNo: "021",
     name: "Rimzetti Spoke Sport",
-    img: "images/image-21.png",
+        img: "https://placehold.co/600x600/0f0f0f/ff2b2b?text=Coming+Soon",
     sizes: ["17 inch", "18 inch", "19 inch"],
     colors: ["Silver", "Matte Grey"],
     lugs: ["5-lug"],
@@ -192,7 +192,7 @@ const PRODUCTS = [
   {
     itemNo: "022",
     name: "Rimzetti Gloss White GTR",
-    img: "images/image-22.png",
+        img: "https://placehold.co/600x600/0f0f0f/ff2b2b?text=Coming+Soon",
     sizes: ["18 inch", "19 inch", "20 inch"],
     colors: ["Gloss White", "Pearl White"],
     lugs: ["5-lug"],
