@@ -107,6 +107,96 @@ const PRODUCTS = [
     colors: ["Polished Titan", "Black"],
     lugs: ["5-lug", "6-lug"],
     supplier: "https://www.alibaba.com/showroom/heavy-duty-forged-wheels.html"
+  },
+  {
+    itemNo: "013",
+    name: "Rimzetti Flow King",
+    img: "images/image-13.png",
+    sizes: ["18 inch", "19 inch", "20 inch"],
+    colors: ["Silver", "Gunmetal"],
+    lugs: ["5-lug"],
+    supplier: "https://www.alibaba.com/product-detail/18-20-Inch-Wheel-Rim-Passenger_1601239747607.html"
+  },
+  {
+    itemNo: "014",
+    name: "Rimzetti Black Machine",
+    img: "images/image-14.png",
+    sizes: ["16 inch", "17 inch", "18 inch", "19 inch"],
+    colors: ["Black Machine", "Silver Face"],
+    lugs: ["4-lug", "5-lug"],
+    supplier: "https://www.alibaba.com/product-detail/JPwheels-Black-Machine-Silver-Face-Wheels_1601198702088.html"
+  },
+  {
+    itemNo: "015",
+    name: "Rimzetti OEM Series",
+    img: "images/image-15.png",
+    sizes: ["17 inch", "18 inch", "19 inch", "20 inch"],
+    colors: ["Silver", "Gunmetal"],
+    lugs: ["5-lug"],
+    supplier: "https://www.alibaba.com/product-detail/Oem-17-18-19-20-Inch_1600950243144.html"
+  },
+  {
+    itemNo: "016",
+    name: "Rimzetti GVICHN Forged",
+    img: "images/image-16.png",
+    sizes: ["18 inch", "19 inch", "20 inch", "22 inch"],
+    colors: ["Gloss Black", "Matte Black"],
+    lugs: ["5-lug"],
+    supplier: "https://www.alibaba.com/product-detail/GVICHN-Brand-6061-T6-Aluminum-Black_1601044842605.html"
+  },
+  {
+    itemNo: "017",
+    name: "Rimzetti Multi-Spoke Concave",
+    img: "images/image-17.png",
+    sizes: ["18 inch", "19 inch", "20 inch", "21 inch", "22 inch"],
+    colors: ["Black", "Silver", "Bronze"],
+    lugs: ["5-lug"],
+    supplier: "https://www.alibaba.com/product-detail/722Auto-Custom-Multi-Spoke-Forged-Wheels_1601527533669.html"
+  },
+  {
+    itemNo: "018",
+    name: "Rimzetti Flow FI-R",
+    img: "images/image-18.png",
+    sizes: ["19 inch", "20 inch"],
+    colors: ["Silver", "Gunmetal"],
+    lugs: ["5-lug"],
+    supplier: "https://www.alibaba.com/product-detail/In-Stock-Alloy-Wheels-Rims-Flow_1601116900872.html"
+  },
+  {
+    itemNo: "019",
+    name: "Rimzetti Black Multi-Spoke",
+    img: "images/image-19.png",
+    sizes: ["15 inch", "16 inch", "17 inch", "18 inch", "19 inch"],
+    colors: ["Gloss Black", "Matte Black"],
+    lugs: ["4-lug", "5-lug"],
+    supplier: "https://www.alibaba.com/product-detail/Wholesale-Passenger-Car-Wheels_1601116900873.html"
+  },
+  {
+    itemNo: "020",
+    name: "Rimzetti Chrome Blade",
+    img: "images/image-20.png",
+    sizes: ["18 inch", "19 inch", "20 inch"],
+    colors: ["Chrome", "Hyper Silver"],
+    lugs: ["5-lug"],
+    supplier: "https://www.alibaba.com/showroom/chrome-alloy-wheels.html"
+  },
+  {
+    itemNo: "021",
+    name: "Rimzetti Spoke Sport",
+    img: "images/image-21.png",
+    sizes: ["17 inch", "18 inch", "19 inch"],
+    colors: ["Silver", "Matte Grey"],
+    lugs: ["5-lug"],
+    supplier: "https://www.alibaba.com/showroom/spoke-sport-wheels.html"
+  },
+  {
+    itemNo: "022",
+    name: "Rimzetti Gloss White GTR",
+    img: "images/image-22.png",
+    sizes: ["18 inch", "19 inch", "20 inch"],
+    colors: ["Gloss White", "Pearl White"],
+    lugs: ["5-lug"],
+    supplier: "https://www.alibaba.com/showroom/white-forged-wheels.html"
   }
 ];
 
