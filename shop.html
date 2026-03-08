@@ -3,13 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rimzetti Rim Catalog — Luxury Wheels</title>
-  <meta name="description" content="Browse Rimzetti's full catalog of luxury forged and cast rims. Select size, color, and lug pattern, then request a free custom quote." />
+  <title>Rim Catalog - Luxury Forged & Cast Wheels | Rimzetti</title>
+  <meta name="description" content="Browse Rimzetti's full catalog of luxury forged and cast rims. Select size, color, and lug pattern, then request a free custom quote with fitment verification." />
+  <meta name="keywords" content="buy forged rims, luxury aftermarket wheels, cast rims, custom wheel quote, rimzetti shop, forged wheels for sale" />
+  <link rel="canonical" href="https://rimzetti.com/shop.html" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rimzetti.com/shop.html" />
+  <meta property="og:title" content="Rim Catalog - Luxury Forged & Cast Wheels | Rimzetti" />
+  <meta property="og:description" content="Browse 12+ luxury forged and cast rim styles. Select size, color, and lug pattern. Request a free custom quote with fitment verification." />
+  <meta property="og:image" content="https://rimzetti.com/images/logo.jpg" />
+  <meta property="og:site_name" content="Rimzetti" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rim Catalog - Luxury Forged & Cast Wheels | Rimzetti" />
+  <meta name="twitter:description" content="Browse 12+ luxury rim styles. Request a free custom quote with fitment verification." />
+  <meta name="twitter:image" content="https://rimzetti.com/images/logo.jpg" />
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Rim Catalog",
+    "description": "Browse Rimzetti's full catalog of luxury forged and cast aftermarket rims.",
+    "url": "https://rimzetti.com/shop.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Rimzetti",
+      "url": "https://rimzetti.com"
+    }
+  }
+  </script>
   <link rel="stylesheet" href="style.css?v=20260308" />
   <link rel="icon" href="images/favicon.jpg" />
 </head>
 <body data-page="shop">
-
 <header class="navbar">
   <div class="logo">
     <a href="index.html"><img src="images/logo.jpg" alt="Rimzetti Logo" /></a>
@@ -21,12 +49,9 @@
     <button class="btn-primary" type="button" onclick="openQuoteForm()">REQUEST QUOTE</button>
   </nav>
 </header>
-
 <h1 class="page-title">Rim Catalog</h1>
 <p class="muted center">Select your rim options and request a custom quote. Pricing is provided after fitment confirmation.</p>
-
 <section id="product-grid" class="product-grid"></section>
-
 <section class="contact-section" id="contact" style="text-align: center; padding: 60px 5%; border-top: 1px solid rgba(255,255,255,0.05);">
   <h2>Contact Us</h2>
   <p class="muted">For custom inquiries or fitment questions, reach out to our team.</p>
@@ -34,24 +59,21 @@
     SEND US A MESSAGE
   </button>
 </section>
-
 <footer>
   <div class="footer-inner">
-    <p>Rimzetti Rims LLC • Jasper, TN • P.O. Box 821, Sequatchie, TN 37374</p>
+    <p>Rimzetti Rims LLC &bull; Jasper, TN &bull; P.O. Box 821, Sequatchie, TN 37374</p>
     <p>support@rimzetti.com</p>
     <div class="footer-social">
-      <a href="https://www.instagram.com/rimzetti" target="_blank" rel="noopener">
-        Instagram
-      </a>
+      <a href="https://www.instagram.com/rimzetti" target="_blank" rel="noopener">Instagram</a>
     </div>
-    <p style="color:rgba(255,255,255,0.4); font-size:13px; margin-top:20px;">© 2026 Rimzetti — Luxury Wheel Empire</p>
+    <p style="color:rgba(255,255,255,0.4); font-size:13px; margin-top:20px;">&copy; 2026 Rimzetti &mdash; Luxury Wheel Empire</p>
   </div>
 </footer>
-
+<!-- Product Modal -->
 <div id="modal" class="modal" aria-hidden="true">
   <div class="modal__overlay" onclick="closeModal()"></div>
   <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="m-title">
-    <button class="modal__close" type="button" onclick="closeModal()">✕</button>
+    <button class="modal__close" type="button" onclick="closeModal()">&#x2715;</button>
     <div class="modal__content">
       <div class="modal__media">
         <img id="m-img" alt="" />
@@ -59,9 +81,7 @@
       <div class="modal__info">
         <h2 id="m-title"></h2>
         <p id="m-itemno" class="muted"></p>
-        
         <div id="m-supplier" class="modal__block" style="display:none; margin-top:15px; background: rgba(255,43,43,0.1); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,43,43,0.3);"></div>
-
         <div class="modal__block">
           <div class="modal__label">Select Size</div>
           <div id="m-sizes" class="chipRow"></div>
@@ -81,76 +101,63 @@
     </div>
   </div>
 </div>
-
+<!-- Quote Modal -->
 <div id="quote-modal" class="modal" aria-hidden="true">
   <div class="modal__overlay" onclick="closeQuoteForm()"></div>
   <div class="modal__panel" role="dialog" aria-modal="true" style="max-width:720px; padding: 40px;">
-    <button class="modal__close" type="button" onclick="closeQuoteForm()">✕</button>
+    <button class="modal__close" type="button" onclick="closeQuoteForm()">&#x2715;</button>
     <div class="modal__info">
       <h2 style="font-size: 28px; margin: 0 0 8px;">Request a Rim Quote</h2>
       <p class="muted" style="margin: 0 0 24px;">Provide your details and we will verify fitment compatibility.</p>
-      
       <form id="quote-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="88238364-5a5e-4f75-a045-ab15b7a5a506" />
         <input type="hidden" name="to" value="support@rimzetti.com" />
         <input type="hidden" name="subject" value="New Rim Quote Request - Rimzetti" />
         <input type="hidden" name="from_name" value="Rimzetti Quote Form" />
         <input type="hidden" name="redirect" value="https://rimzetti.com/shop.html?submitted=true" />
-        
         <input type="hidden" name="Item Number" id="q-itemno" />
         <input type="hidden" name="Rim Name" id="q-rim" />
         <input type="hidden" name="Size" id="q-size" />
         <input type="hidden" name="Color" id="q-color" />
         <input type="hidden" name="Lug Pattern" id="q-lugs" />
-
         <label class="modal__label" for="contact-name">Full Name</label>
         <input class="input" id="contact-name" name="Name" type="text" autocomplete="name" required />
-
         <label class="modal__label" for="contact-email">Email Address</label>
         <input class="input" id="contact-email" name="Email" type="email" autocomplete="email" required />
-
         <label class="modal__label" for="q-zip">Shipping Zip Code</label>
         <input class="input" id="q-zip" name="Zip Code" type="text" inputmode="numeric" autocomplete="shipping postal-code" required />
-
-        <label class="modal__label" for="notes">Vehicle & Additional Notes</label>
+        <label class="modal__label" for="notes">Vehicle &amp; Additional Notes</label>
         <textarea class="input" id="notes" name="Notes" rows="4" placeholder="Year, make, model, tire size..."></textarea>
-
-        <button class="btn-primary" type="submit" style="width:100%; margin-top:10px;">Submit Quote Request</button>
+        <button class="btn-primary" type="submit" style="width:100%; margin-top:20px;">Submit Quote Request</button>
       </form>
     </div>
   </div>
 </div>
-
+<!-- Contact Modal -->
 <div id="contact-modal" class="modal" aria-hidden="true">
   <div class="modal__overlay" onclick="closeContactForm()"></div>
-  <div class="modal__panel" role="dialog" aria-modal="true" style="max-width:500px; padding: 40px;">
-    <button class="modal__close" type="button" onclick="closeContactForm()">✕</button>
+  <div class="modal__panel" role="dialog" aria-modal="true" style="max-width:600px; padding: 40px;">
+    <button class="modal__close" type="button" onclick="closeContactForm()">&#x2715;</button>
     <div class="modal__info">
       <h2 style="font-size: 28px; margin: 0 0 8px;">Contact Rimzetti</h2>
       <p class="muted" style="margin: 0 0 24px;">We'll get back to you within 1 business day.</p>
-      
-      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="88238364-5a5e-4f75-a045-ab15b7a5a506" />
-        <input type="hidden" name="to" value="support@rimzetti.com" />
-        <input type="hidden" name="subject" value="New Contact Message - Rimzetti" />
-        <input type="hidden" name="from_name" value="Rimzetti Contact Form" />
-        <input type="hidden" name="redirect" value="https://rimzetti.com/shop.html?contacted=true" />
-
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="88238364-5a5e-4f75-a045-ab15b7a5a506">
+        <input type="hidden" name="to" value="support@rimzetti.com">
+        <input type="hidden" name="subject" value="New Contact Message - Rimzetti">
+        <input type="hidden" name="from_name" value="Rimzetti Contact Form">
+        <input type="hidden" name="redirect" value="https://rimzetti.com/shop.html?contacted=true">
         <label class="modal__label">Name</label>
         <input class="input" name="name" type="text" required />
-        
         <label class="modal__label">Email</label>
         <input class="input" type="email" name="email" required />
-
         <label class="modal__label">Message</label>
-        <textarea class="input" name="message" rows="5" required></textarea>
-
-        <button class="btn-primary" type="submit" style="width:100%; margin-top:10px;">Send Message</button>
+        <textarea class="input" name="message" rows="4" required></textarea>
+        <button class="btn-primary" type="submit" style="width:100%; margin-top:20px;">Send Message</button>
       </form>
     </div>
   </div>
 </div>
-
 <script src="app.js?v=20260308"></script>
 </body>
 </html>
