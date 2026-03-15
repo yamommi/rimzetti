@@ -136,6 +136,12 @@ img{ max-width: 100%; display: block; height: auto; }
   font-size: 20px;
   font-weight: 800;
 }
+.product-itemno{
+   font-size: 12px;
+   color: rgba(255,255,255,0.5);
+   letter-spacing: 0.05em;
+   margin: 0 0 6px;
+ }
 .product-row{
   display: flex;
   justify-content: space-between;
