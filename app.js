@@ -212,7 +212,7 @@ function renderShop() {
     card.innerHTML =
       '<img class="product-image" src="' + product.img + '" alt="' + product.name + '" loading="lazy">' +
       '<div class="product-body">' +
-        '<h3 class="product-title">' + product.name + '</h3>' +
+        '<p class="product-itemno">Item #' + product.itemNo + '</p>' + '<p class="product-itemno">Item #' + product.itemNo + '</p>' + '<h3 class="product-title">' + product.name + '</h3>' +
         '<div class="product-row">' +
           '<span class="product-label">Sizes:</span>' +
           '<span class="product-value">' + product.sizes.join(", ") + '</span>' +
