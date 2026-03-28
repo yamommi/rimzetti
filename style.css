@@ -526,3 +526,13 @@ footer {
     font-size: 28px;
   }
 }
+
+/* --- Return Disclaimer Styling --- */
+.disclaimer {
+  color: #bbb;
+  font-size: 14px;
+  text-align: center;
+  margin: 30px auto;
+  line-height: 1.6;
+  max-width: 800px;
+}
