@@ -330,7 +330,7 @@ function showBanner(msg) {
 
 /* ============================== INITIALIZE ============================== */
 document.addEventListener("DOMContentLoaded", function() {
-  if (document.body.dataset.page === "shop") {
+  const params = new URLSearchParams(window.location.search);   if (params.get('contacted') === 'true') {     showBanner('Message sent! We will get back to you within 1 business day.');     window.history.replaceState({}, '', window.location.pathname);   }   if (document.body.dataset.page === "shop") {
     renderShop();
     const params = new URLSearchParams(window.location.search);
     if (params.get('submitted') === 'true') {
